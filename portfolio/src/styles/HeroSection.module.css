@@ -1,0 +1,268 @@
+/* ─────────────────────────────────────────
+   HeroSection.module.css
+   ───────────────────────────────────────── */
+
+/* Google Font import – add to _document / layout if not global */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap");
+
+/* ── Root section ── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background: #000;
+  overflow: hidden;
+  font-family: "Urbanist", sans-serif;
+}
+
+/* ── Portrait ── */
+.portrait {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 108px;
+  width: clamp(240px, 46.95vw, 601px);
+  /* aspect-ratio keeps the 601/692 proportion */
+  aspect-ratio: 601 / 692;
+  z-index: 10;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Fade portrait bottom into black */
+.portraitFade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 50%, #000 100%);
+}
+
+/* ── Left copy block ── */
+.leftBlock {
+  position: absolute;
+  left: clamp(20px, 2.73vw, 35px);
+  top: clamp(280px, 27.8vw, 356px);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.1vw, 14px);
+}
+
+/* "From [Vision to Interface]" row */
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fromLabel {
+  color: #fff;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.badge {
+  background: #2c50f7;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Sub-tagline */
+.tagline {
+  color: #fff;
+  font-size: clamp(14px, 1.875vw, 24px);
+  font-weight: 600;
+  line-height: 1.45;
+  max-width: clamp(240px, 35.9vw, 460px);
+  margin: 0;
+}
+
+.taglineAccent {
+  color: #2c50f7;
+}
+
+/* ── Right copy block ── */
+.rightBlock {
+  position: absolute;
+  right: clamp(20px, 3.5vw, 35px);
+  top: clamp(180px, 23.3vw, 298px);
+  z-index: 20;
+  text-align: right;
+  max-width: clamp(200px, 33.8vw, 433px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.bio {
+  color: #fff;
+  font-size: clamp(13px, 1.875vw, 24px);
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── CTA pill ── */
+.ctaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(12px, 1.48vw, 19px);
+  background: #fff;
+  border-radius: 50px;
+  padding: 6px 7px;
+  width: clamp(160px, 18.75vw, 240px);
+  height: clamp(48px, 5.15vw, 66px);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.ctaPill:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(44, 80, 247, 0.25);
+}
+
+.ctaPill:active {
+  transform: scale(0.97);
+}
+
+.arrowCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #010101;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: clamp(36px, 4.14vw, 53px);
+  height: clamp(36px, 4.14vw, 53px);
+}
+
+.arrowCircle svg {
+  width: clamp(12px, 1.4vw, 18px);
+  height: auto;
+}
+
+.ctaLabel {
+  color: #010101;
+  font-size: clamp(14px, 1.875vw, 24px);
+  font-weight: 600;
+  font-family: "Urbanist", sans-serif;
+  flex: 1;
+  text-align: right;
+  padding-right: clamp(6px, 1vw, 14px);
+}
+
+/* ── Giant title ── */
+.bigTitle {
+  position: absolute;
+  z-index: 20;
+  left: clamp(8px, 1.3vw, 17px);
+  bottom: clamp(24px, 2.8vw, 40px);
+  width: 97vw;
+  will-change: transform;
+}
+
+.bigTitle span {
+  display: block;
+  color: #fff;
+  font-size: clamp(52px, 18.08vw, 231.5px);
+  font-weight: 700;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+/* ── Blue accent bar ── */
+.accentBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(5px, 1.5vw, 20px);
+  background: #2c50f7;
+  z-index: 30;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+   ───────────────────────────────────────── */
+
+/* Tablet – stack layout */
+@media (max-width: 900px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .portrait {
+    top: 80px;
+    width: clamp(200px, 65vw, 440px);
+  }
+
+  .leftBlock {
+    top: clamp(340px, 52vw, 480px);
+  }
+
+  .rightBlock {
+    top: auto;
+    bottom: clamp(120px, 16vw, 180px);
+    right: clamp(16px, 4vw, 32px);
+    max-width: clamp(180px, 50vw, 320px);
+  }
+
+  .bio {
+    font-size: clamp(12px, 2vw, 18px);
+  }
+
+  .bigTitle span {
+    font-size: clamp(44px, 16vw, 160px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .portrait {
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+  }
+
+  .leftBlock {
+    top: auto;
+    bottom: clamp(160px, 34vw, 240px);
+    left: 16px;
+  }
+
+  .rightBlock {
+    display: none; /* hidden on small screens – show in a separate section if needed */
+  }
+
+  .bigTitle {
+    bottom: clamp(14px, 3vw, 24px);
+    left: 4px;
+    width: 99vw;
+  }
+
+  .bigTitle span {
+    font-size: clamp(40px, 15.5vw, 80px);
+  }
+
+  .accentBar {
+    height: 6px;
+  }
+}
