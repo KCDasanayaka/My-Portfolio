@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   min-height: 100svh;
-  background: #000;
+  background: #030406;
   overflow: hidden;
   font-family: "Urbanist", sans-serif;
 }
@@ -49,7 +49,7 @@
 .leftBlock {
   position: absolute;
   left: clamp(20px, 2.73vw, 35px);
-  top: clamp(280px, 27.8vw, 356px);
+  top: clamp(280px, 27.8vw, 300px);
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   font-size: clamp(14px, 1.875vw, 24px);
   font-weight: 600;
   line-height: 1.45;
-  max-width: clamp(240px, 35.9vw, 460px);
+  max-width: clamp(240px, 39.9vw, 492px);
   margin: 0;
 }
 
@@ -99,10 +99,10 @@
 .rightBlock {
   position: absolute;
   right: clamp(20px, 3.5vw, 35px);
-  top: clamp(180px, 23.3vw, 298px);
+  top: clamp(180px, 23.3vw, 240px);
   z-index: 20;
   text-align: right;
-  max-width: clamp(200px, 33.8vw, 433px);
+  max-width: clamp(200px, 33.8vw, 440px);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -121,12 +121,12 @@
 .ctaPill {
   display: inline-flex;
   align-items: center;
-  gap: clamp(12px, 1.48vw, 19px);
+  gap: clamp(12px, 1.48vw, 16px);
   background: #fff;
   border-radius: 50px;
   padding: 6px 7px;
   width: clamp(160px, 18.75vw, 240px);
-  height: clamp(48px, 5.15vw, 66px);
+  height: clamp(48px, 5.15vw, 56px);
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
@@ -173,7 +173,7 @@
   position: absolute;
   z-index: 20;
   left: clamp(8px, 1.3vw, 17px);
-  bottom: clamp(24px, 2.8vw, 40px);
+  bottom: clamp(12px, 2.8vw, 10px);
   width: 97vw;
   will-change: transform;
 }
@@ -181,7 +181,7 @@
 .bigTitle span {
   display: block;
   color: #fff;
-  font-size: clamp(52px, 18.08vw, 231.5px);
+  font-size: clamp(52px, 18.08vw, 260px);
   font-weight: 700;
   line-height: 0.9;
   white-space: nowrap;

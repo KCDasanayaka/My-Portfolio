@@ -19,10 +19,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 18px clamp(20px, 3.9vw, 50px);
+  padding: 18px clamp(50px, 3.9vw, 50px);
 
   /* Default (at-top) state — frosted glass */
   background: rgba(255, 255, 255, 0.18);
@@ -91,7 +89,6 @@
 .menuBtn {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
   position: relative;
   color: #ffffff;

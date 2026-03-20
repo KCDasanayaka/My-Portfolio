@@ -1,0 +1,232 @@
+/* ─────────────────────────────────────────
+   ServicesSection.module.css
+   ───────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap");
+
+/* ── Root ── */
+.services {
+  width: 100%;
+  background: #000;
+  font-family: "Urbanist", sans-serif;
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────
+   META BAR
+   ───────────────────────────────────────── */
+.metaBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(14px, 2vw, 26px) clamp(16px, 2.5vw, 32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.metaLeft,
+.metaRight {
+  color: #fff;
+  font-size: clamp(13px, 1.2vw, 17px);
+  font-weight: 400;
+  opacity: 0.88;
+  letter-spacing: 0.01em;
+}
+
+/* ─────────────────────────────────────────
+   SECTION TITLE
+   ───────────────────────────────────────── */
+.titleWrap {
+  padding: clamp(24px, 3.5vw, 56px) clamp(16px, 2.5vw, 32px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: clamp(20px, 3vw, 40px);
+}
+
+.sectionTitle {
+  display: block;
+  color: #fff;
+  font-size: clamp(72px, 16vw, 200px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   SERVICE ROWS
+   ───────────────────────────────────────── */
+.serviceRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  padding: clamp(28px, 4vw, 56px) clamp(16px, 2.5vw, 32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.25s ease;
+}
+
+.serviceRow:hover {
+  background: rgba(44, 80, 247, 0.04);
+}
+
+/* Left — text content */
+.serviceContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.5vw, 20px);
+}
+
+.serviceTitle {
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.serviceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3px, 0.4vw, 6px);
+}
+
+.serviceItem {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(13px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+}
+
+/* Right — icon */
+.iconWrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: clamp(4px, 0.5vw, 8px);
+  width: clamp(72px, 9vw, 120px);
+}
+
+.iconWrap svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ─────────────────────────────────────────
+   CTA BANNER
+   ───────────────────────────────────────── */
+.ctaBanner {
+  margin: clamp(28px, 4vw, 56px) clamp(16px, 2.5vw, 32px);
+  background: #2c50f7;
+  border-radius: clamp(12px, 1.5vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(16px, 2vw, 32px);
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 3.5vw, 48px);
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.5vw, 8px);
+}
+
+.ctaHeading {
+  color: #fff;
+  font-size: clamp(18px, 2.8vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ctaSubtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(12px, 1.1vw, 16px);
+  font-weight: 400;
+  margin: 0;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #000;
+  font-family: "Urbanist", sans-serif;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 700;
+  border: none;
+  border-radius: clamp(8px, 1vw, 14px);
+  padding: clamp(14px, 1.5vw, 20px) clamp(24px, 2.5vw, 36px);
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  flex-shrink: 0;
+}
+
+.ctaBtn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.ctaBtn:active {
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────
+   SCROLL-REVEAL
+   ───────────────────────────────────────── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeUp:nth-child(2) { transition-delay: 0.08s; }
+.fadeUp:nth-child(3) { transition-delay: 0.16s; }
+.fadeUp:nth-child(4) { transition-delay: 0.24s; }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .serviceRow {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  .iconWrap {
+    width: clamp(52px, 16vw, 80px);
+  }
+
+  .sectionTitle {
+    font-size: clamp(60px, 18vw, 100px);
+  }
+
+  .ctaBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 16px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
