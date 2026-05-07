@@ -158,3 +158,9 @@
     line-height: 1.4;
   }
 }
+@media (max-width: 480px) {
+
+  .about{
+    min-height: 500px;
+  }  
+}
