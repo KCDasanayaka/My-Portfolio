@@ -198,6 +198,123 @@
 /* ─────────────────────────────────────────
    RESPONSIVE
    ───────────────────────────────────────── */
+
+/* ─────────────────────────────────────────
+   PROJECT DETAILS PAGE
+   ───────────────────────────────────────── */
+.projectDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  padding: clamp(24px, 3vw, 48px) clamp(16px, 2.5vw, 32px);
+}
+
+.projectImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: clamp(10px, 1.2vw, 16px);
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.projectTitle {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  color: #fff;
+}
+
+.projectSubtitle {
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.projectDescription {
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.projectDescription p {
+  margin-bottom: 16px;
+}
+
+.projectDescription p:last-child {
+  margin-bottom: 0;
+}
+
+.projectTech h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px 0;
+}
+
+.projectTech ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.projectTech li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+  color: #fff;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2c50f7;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: #3d62ff;
+}
+
+/* Responsive for project details */
+@media (max-width: 768px) {
+  .projectDetails {
+    grid-template-columns: 1fr;
+    gap: clamp(24px, 3vw, 32px);
+  }
+
+  .projectImageWrap {
+    aspect-ratio: 3 / 2;
+  }
+}
 @media (max-width: 700px) {
   .gridRow2 {
     grid-template-columns: 1fr;
