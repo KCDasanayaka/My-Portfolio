@@ -72,6 +72,8 @@
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center;
   background: #2c50f7;
   border-radius: 4px;
   padding: 4px 8px;
@@ -81,13 +83,19 @@
   line-height: 1.2;
 }
 
+.widthKeeper {
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* Sub-tagline */
 .tagline {
   color: #fff;
-  font-size: clamp(14px, 1.875vw, 24px);
-  font-weight: 600;
-  line-height: 1.45;
-  max-width: clamp(240px, 39.9vw, 492px);
+  font-size: clamp(14px, 3.6vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: clamp(240px, 39.9vw, 600px);
   margin: 0;
 }
 
@@ -111,7 +119,7 @@
 
 .bio {
   color: #fff;
-  font-size: clamp(13px, 1.875vw, 24px);
+  font-size: clamp(14px, 1.875vw, 24px);
   font-weight: 300;
   line-height: 1.5;
   margin: 0;
@@ -124,9 +132,9 @@
   gap: clamp(12px, 1.48vw, 16px);
   background: #fff;
   border-radius: 50px;
-  padding: 6px 7px;
+  padding: 6px 6px;
   width: clamp(160px, 18.75vw, 240px);
-  height: clamp(48px, 5.15vw, 56px);
+  height: clamp(48px, 5.15vw, 60px);
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
@@ -181,8 +189,9 @@
 .bigTitle span {
   display: block;
   color: #fff;
-  font-size: clamp(52px, 18.08vw, 260px);
-  font-weight: 700;
+  font-size: clamp(52px, 14.4vw, 260px);
+  letter-spacing: -10px;
+  font-weight: 800;
   line-height: 0.9;
   white-space: nowrap;
 }

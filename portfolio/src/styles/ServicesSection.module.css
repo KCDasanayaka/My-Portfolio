@@ -26,8 +26,8 @@
 .metaLeft,
 .metaRight {
   color: #fff;
-  font-size: clamp(13px, 1.2vw, 17px);
-  font-weight: 400;
+  font-size: clamp(13px, 2.25vw, 24px);
+  font-weight: 600;
   opacity: 0.88;
   letter-spacing: 0.01em;
 }
@@ -96,10 +96,10 @@
 }
 
 .serviceItem {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: clamp(13px, 1.3vw, 18px);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(13px, 1.6vw, 24px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.0;
   letter-spacing: 0.005em;
 }
 

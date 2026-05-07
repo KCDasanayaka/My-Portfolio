@@ -27,8 +27,8 @@
 .metaLeft,
 .metaRight {
   color: #ffffff;
-  font-size: clamp(13px, 1.2vw, 18px);
-  font-weight: 400;
+  font-size: clamp(13px, 2.25vw, 24px);
+  font-weight: 600;
   opacity: 0.9;
   letter-spacing: 0.01em;
 }
@@ -58,14 +58,13 @@
 .gridRow2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Row 3 — 3 columns */
 .gridRow3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 }
 
 /* ─────────────────────────────────────────
@@ -76,7 +75,10 @@
   flex-direction: column;
   gap: clamp(8px, 1vw, 14px);
   padding: clamp(16px, 2vw, 28px) clamp(16px, 2vw, 28px) clamp(20px, 2.5vw, 36px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  border-left: 1px solid rgb(255, 255, 255, 0.5);
+  border-right: 1px solid rgb(255, 255, 255, 0.5);
+  border-top: 1px solid rgb(255, 255, 255, 0.5);
   cursor: pointer;
   transition: background 0.25s ease;
   text-decoration: none;

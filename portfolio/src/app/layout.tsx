@@ -1,3 +1,4 @@
+import "./globals.css";
 import { Urbanist } from "next/font/google";
 const urbanist = Urbanist({ subsets: ["latin"] });
 import Navbar from "@/components/layout/Navbar";

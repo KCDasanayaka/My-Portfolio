@@ -27,8 +27,8 @@
 .metaLeft,
 .metaRight {
   color: #fff;
-  font-size: clamp(13px, 1.2vw, 18px);
-  font-weight: 400;
+  font-size: clamp(13px, 2.25vw, 24px);
+  font-weight: 600;
   opacity: 0.9;
   letter-spacing: 0.01em;
 }

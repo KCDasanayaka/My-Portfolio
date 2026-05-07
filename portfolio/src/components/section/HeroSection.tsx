@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/HeroSection.module.css";
+import heroPortrait from '../../../public/hero-portrait.png';
 
 export default function HeroSection() {
   const titleRef = useRef<HTMLDivElement>(null);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   /* ── Subtle parallax on the giant title ── */
   useEffect(() => {
@@ -18,13 +20,27 @@ export default function HeroSection() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const texts = [
+    'Vision to Interface.',
+    'Code to Experience.',
+    'Brand to Impact'
+  ];
+
+  /* ── Rotate texts every 2 seconds ── */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [texts.length]);
+
   return (
     <section className={styles.hero}>
 
       {/* ── Portrait photo ── */}
       <div className={styles.portrait}>
         <Image
-          src="/hero-portrait.png" 
+          src={heroPortrait} 
           alt="Kavindu Chathuranga"
           fill
           priority
@@ -41,13 +57,17 @@ export default function HeroSection() {
         {/* "From [Vision to Interface]" badge row */}
         <div className={styles.badgeRow}>
           <span className={styles.fromLabel}>From</span>
-          <span className={styles.badge}>Vision to Interface</span>
+          <span className={`${styles.badge} px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg`}>
+            {texts[currentTextIndex]}
+          </span>
         </div>
 
         {/* Sub-tagline */}
         <p className={styles.tagline}>
           I turn design and code into{" "}
-          <span className={styles.taglineAccent}>digital&nbsp;experiences</span>{" "}
+          <span className={styles.taglineAccent}>
+            digital&nbsp;<br /> experiences
+          </span>{" "}
           that help businesses grow
         </p>
       </div>
@@ -55,7 +75,7 @@ export default function HeroSection() {
       {/* ── Right copy block ── */}
       <div className={styles.rightBlock}>
         <p className={styles.bio}>
-          I&apos;m Kavindu Chathuranga — a UI/UX Engineer, Frontend Developer,
+          I&apos;m Kavindu Chathuranga , a UI/UX Engineer, Frontend Developer,
           and Brand Designer creating intuitive experiences, modern interfaces,
           and impactful brands
         </p>
@@ -83,7 +103,7 @@ export default function HeroSection() {
 
       {/* ── Giant "IamKavindu" title ── */}
       <div ref={titleRef} className={styles.bigTitle}>
-        <span>IamKavindu</span>
+        <span>UIUX ENGINEER</span>
       </div>
 
       {/* ── Blue accent bar at bottom ── */}
