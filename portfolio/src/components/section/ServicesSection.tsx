@@ -14,111 +14,27 @@ import styles from "../../styles/ServicesSection.module.css";
    ───────────────────────────────────────── */
 
 const IconCoil = () => (
-  <svg
-    viewBox="0 0 120 90"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    {[0, 14, 28, 42, 56, 70].map((y, index) => (
-      <ellipse
-        key={index}
-        cx="60"
-        cy={12 + y}
-        rx="52"
-        ry="10"
-        stroke="currentColor"
-        strokeWidth="2.2"
-      />
-    ))}
+  <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="#2C50F7"/>
+<path d="M162.52 98.4205H103.82L145.34 56.9005L143.1 54.6605L101.58 96.1805V37.4805H98.42V96.1805L56.9 54.6605L54.66 56.9005L96.18 98.4205H37.48V101.58H96.18L54.66 143.1L56.9 145.34L98.42 103.82V162.52H101.58V103.82L143.1 145.34L145.34 143.1L103.82 101.58H162.52V98.4205Z" fill="black"/>
+</svg>
 
-    <line
-      x1="8"
-      y1="12"
-      x2="8"
-      y2="82"
-      stroke="currentColor"
-      strokeWidth="2.2"
-    />
-
-    <line
-      x1="112"
-      y1="12"
-      x2="112"
-      y2="82"
-      stroke="currentColor"
-      strokeWidth="2.2"
-    />
-  </svg>
 );
 
 const IconAtom = () => (
-  <svg
-    viewBox="0 0 120 120"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <circle
-      cx="60"
-      cy="60"
-      r="7"
-      stroke="currentColor"
-      strokeWidth="2.2"
-    />
+  <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M188.4 4H108.6C104.42 4 101 7.42008 101 11.6V51.5003C101 25.2601 79.7399 4 53.5001 4C27.26 4 6 25.2601 6 51.5003C6 77.7404 27.26 99.0004 53.5001 99.0004C27.26 99.0004 6 120.26 6 146.501C6 172.741 27.26 194 53.5001 194C79.7399 194 101 172.741 101 146.501C101 172.741 122.26 194 148.5 194C174.74 194 196 172.741 196 146.501C196 120.26 174.74 99.0004 148.5 99.0004H188.4C192.58 99.0004 196 95.5805 196 91.4003V11.6C196 7.42008 192.58 4 188.4 4Z" fill="#2C50F7"/>
+<path d="M127.92 30.9395V72.0997H169.08V30.9395H127.92ZM131.08 34.0995H165.92V68.9396H131.08V34.0995Z" fill="black"/>
+</svg>
 
-    <ellipse
-      cx="60"
-      cy="60"
-      rx="52"
-      ry="18"
-      stroke="currentColor"
-      strokeWidth="2.2"
-    />
-
-    <ellipse
-      cx="60"
-      cy="60"
-      rx="52"
-      ry="18"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      transform="rotate(60 60 60)"
-    />
-
-    <ellipse
-      cx="60"
-      cy="60"
-      rx="52"
-      ry="18"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      transform="rotate(120 60 60)"
-    />
-  </svg>
 );
 
 const IconLayers = () => (
-  <svg
-    viewBox="0 0 120 110"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    {[0, 10, 20, 30, 40].map((offset, index) => {
-      const y = 70 - offset;
+  <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M147.5 100C173.74 100 195 78.74 195 52.5C195 26.26 173.74 5 147.5 5C121.26 5 100 26.26 100 52.5C100 26.26 78.74 5 52.5 5C26.26 5 5 26.26 5 52.5C5 78.74 26.26 100 52.5 100C26.26 100 5 121.26 5 147.5C5 173.74 26.26 195 52.5 195C78.74 195 100 173.74 100 147.5C100 173.74 121.26 195 147.5 195C173.74 195 195 173.74 195 147.5C195 121.26 173.74 100 147.5 100Z" fill="#2C50F7"/>
+<path d="M109.34 90.6599C104.54 85.8599 101.6 79.2599 101.6 71.9599V70.3799H98.42V71.9599C98.42 79.2799 95.46 85.8799 90.68 90.6599C85.88 95.4599 79.28 98.3999 71.98 98.3999V101.56C79.3 101.56 85.9 104.52 90.68 109.3C95.48 114.1 98.42 120.7 98.42 128V129.58H101.6V128C101.6 120.68 104.56 114.08 109.34 109.3C114.14 104.5 120.74 101.56 128.04 101.56V98.3999C120.72 98.3999 114.12 95.4399 109.34 90.6599ZM100 118.56C97.06 109.84 90.16 102.94 81.44 99.9799C90.16 97.0199 97.04 90.1399 100 81.3999C102.94 90.1199 109.84 97.0199 118.56 99.9799C109.84 102.94 102.96 109.82 100 118.56Z" fill="#010101"/>
+</svg>
 
-      return (
-        <polygon
-          key={index}
-          points={`60,${y - 16} 108,${y} 60,${y + 16} 12,${y}`}
-          stroke="currentColor"
-          strokeWidth="2.2"
-          fill="none"
-        />
-      );
-    })}
-  </svg>
 );
 
 /* ─────────────────────────────────────────
@@ -266,10 +182,6 @@ export default function ServicesSection() {
         {/* Service content */}
         <div className={styles.cardBody}>
           <div className={styles.serviceInformation}>
-            <p className={styles.serviceDescription}>
-              {service.description}
-            </p>
-
             <ul className={styles.serviceList}>
               {service.items.map((item, itemIndex) => (
                 <li
