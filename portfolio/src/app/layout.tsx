@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Urbanist } from "next/font/google";
 const urbanist = Urbanist({ subsets: ["latin"] });
+import PortfolioEntrance from "@/components/animation/PortfolioEntrance";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/section/HeroSection";
 import About from "@/components/section/AboutSection";
@@ -22,13 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
+        <PortfolioEntrance>
+          <Navbar/>
         <Hero/>
         <About/>
         <Projects/>
         <Services/>
         <Contact/>
         <Footer/>
+        </PortfolioEntrance>
+        
       </body>
     </html>
   );

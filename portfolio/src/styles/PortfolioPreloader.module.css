@@ -1,0 +1,354 @@
+/* ══════════════════════════════════════════
+   PORTFOLIO PRELOADER
+   ══════════════════════════════════════════ */
+
+.preloader {
+  --preloader-black: #020304;
+  --preloader-white: #ffffff;
+  --preloader-grey: rgba(255, 255, 255, 0.48);
+  --preloader-blue: #3152f5;
+
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  width: 100%;
+  height: 100svh;
+
+  overflow: hidden;
+
+  font-family:
+    "Urbanist",
+    "Noto Sans JP",
+    "Noto Sans Arabic",
+    Arial,
+    sans-serif;
+
+  pointer-events: auto;
+}
+
+
+/* ─────────────────────────────────────────
+   BLACK BACKGROUND
+   ───────────────────────────────────────── */
+
+.blackBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: var(--preloader-black);
+
+  opacity: 1;
+
+  transition: opacity 100ms linear;
+}
+
+/*
+ * Once the blue curtain completely covers the page,
+ * the black layer disappears behind it.
+ */
+.revealPhase .blackBackground {
+  opacity: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   WORD STAGE
+   ───────────────────────────────────────── */
+
+.wordStage {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  transition:
+    opacity 250ms ease,
+    transform 350ms ease;
+}
+
+.coverPhase .wordStage,
+.revealPhase .wordStage {
+  opacity: 0;
+  transform: translateY(-28px);
+}
+
+
+/* ─────────────────────────────────────────
+   ACTIVE GREETING
+   ───────────────────────────────────────── */
+
+.wordRow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.8vw, 28px);
+
+  max-width: 100%;
+
+  animation: wordEntrance 430ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.wordDot {
+  display: block;
+  flex: 0 0 auto;
+
+  width: clamp(11px, 1vw, 18px);
+  height: clamp(11px, 1vw, 18px);
+
+  border-radius: 50%;
+
+  background: var(--preloader-blue);
+
+  animation: dotPulse 430ms ease both;
+}
+
+.word {
+  display: block;
+
+  color: var(--preloader-white);
+
+  font-size: clamp(3.6rem, 10vw, 10rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+
+  white-space: nowrap;
+}
+
+
+/* Arabic needs slightly different spacing */
+.wordRow[dir="rtl"] .word {
+  letter-spacing: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   WORD ANIMATIONS
+   ───────────────────────────────────────── */
+
+@keyframes wordEntrance {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(60px)
+      rotateX(18deg);
+    filter: blur(9px);
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   PROGRESS INDICATOR
+   ───────────────────────────────────────── */
+
+.progress {
+  position: absolute;
+  right: clamp(22px, 4vw, 64px);
+  bottom: clamp(22px, 4vw, 50px);
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--preloader-grey);
+
+  font-size: clamp(0.72rem, 1vw, 0.9rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1em;
+
+  transition:
+    opacity 250ms ease,
+    transform 350ms ease;
+}
+
+.progressCurrent {
+  color: var(--preloader-white);
+}
+
+.progressDivider {
+  opacity: 0.45;
+}
+
+.progressTotal {
+  opacity: 0.7;
+}
+
+.coverPhase .progress,
+.revealPhase .progress {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+
+/* ══════════════════════════════════════════
+   BLUE CURVED CURTAIN
+   ══════════════════════════════════════════ */
+
+.blueCurtain {
+  position: absolute;
+  left: -10%;
+  bottom: -125%;
+  z-index: 5;
+
+  width: 120%;
+  height: 125%;
+
+  border-top-left-radius: 50% 12%;
+  border-top-right-radius: 50% 12%;
+
+  background: var(--preloader-blue);
+
+  transform: translateY(0);
+
+  will-change: transform, border-radius;
+
+  transition:
+    transform 900ms
+      cubic-bezier(0.76, 0, 0.24, 1),
+    border-radius 900ms
+      cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+/*
+ * Blue shape rises from the bottom and
+ * completely covers the screen.
+ */
+.coverPhase .blueCurtain {
+  transform: translateY(-100%);
+
+  border-top-left-radius: 50% 10%;
+  border-top-right-radius: 50% 10%;
+}
+
+
+/*
+ * Blue layer continues moving upward,
+ * revealing the homepage underneath.
+ */
+.revealPhase .blueCurtain {
+  transform: translateY(-205%);
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  transition-duration: 1000ms;
+}
+
+
+/* ══════════════════════════════════════════
+   MOBILE
+   ══════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .wordStage {
+    padding: 18px;
+  }
+
+  .wordRow {
+    gap: 12px;
+  }
+
+  .wordDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .word {
+    max-width: calc(100vw - 60px);
+
+    font-size: clamp(3rem, 16vw, 5.5rem);
+    letter-spacing: -0.055em;
+
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .progress {
+    right: 18px;
+    bottom: 20px;
+  }
+
+  .blueCurtain {
+    left: -20%;
+    width: 140%;
+
+    border-top-left-radius: 50% 8%;
+    border-top-right-radius: 50% 8%;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   SHORT SCREENS
+   ══════════════════════════════════════════ */
+
+@media (max-height: 540px) {
+  .word {
+    font-size: clamp(2.8rem, 12vh, 5.5rem);
+  }
+
+  .progress {
+    bottom: 16px;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+   ══════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wordRow,
+  .wordDot {
+    animation-duration: 1ms;
+  }
+
+  .blackBackground,
+  .wordStage,
+  .progress,
+  .blueCurtain {
+    transition-duration: 1ms;
+  }
+}
