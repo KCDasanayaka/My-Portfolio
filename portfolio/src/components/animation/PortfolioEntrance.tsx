@@ -7,99 +7,103 @@ import {
   type ReactNode,
 } from "react";
 import PortfolioPreloader from "./PortfolioPreloader";
+import styles from "../../styles/PortfolioEntrance.module.css";
 
 interface PortfolioEntranceProps {
   children: ReactNode;
 }
 
-/*
- * Change this to false when you need the preloader
- * to run after every refresh.
- */
 const SHOW_ONCE_PER_SESSION = true;
-
 const STORAGE_KEY = "portfolio-preloader-seen";
 
 export default function PortfolioEntrance({
   children,
 }: PortfolioEntranceProps) {
-  const [isCheckingSession, setIsCheckingSession] =
-    useState(true);
-
-  const [showPreloader, setShowPreloader] =
-    useState(false);
+  /*
+   * Start with the preloader visible.
+   * This prevents the portfolio from flashing before hydration.
+   */
+  const [showPreloader, setShowPreloader] = useState(true);
+  const [sessionChecked, setSessionChecked] = useState(false);
 
   useEffect(() => {
     if (!SHOW_ONCE_PER_SESSION) {
-      setShowPreloader(true);
-      setIsCheckingSession(false);
+      setSessionChecked(true);
       return;
     }
 
     try {
       const alreadySeen =
-        window.sessionStorage.getItem(STORAGE_KEY);
+        window.sessionStorage.getItem(STORAGE_KEY) === "true";
 
-      setShowPreloader(alreadySeen !== "true");
+      if (alreadySeen) {
+        setShowPreloader(false);
+      }
     } catch {
       /*
-       * Show the preloader when browser storage
+       * Keep the preloader visible when sessionStorage
        * is unavailable.
        */
-      setShowPreloader(true);
+    } finally {
+      setSessionChecked(true);
     }
-
-    setIsCheckingSession(false);
   }, []);
 
-  /* Lock page scrolling while loading */
+  /*
+   * Prevent page scrolling while the loading screen is active.
+   */
   useEffect(() => {
-    if (isCheckingSession || !showPreloader) {
+    if (!showPreloader) {
       return;
     }
 
-    const previousOverflow =
-      document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow =
+      document.documentElement.style.overflow;
 
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow =
-        previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow =
+        previousHtmlOverflow;
     };
-  }, [isCheckingSession, showPreloader]);
+  }, [showPreloader]);
 
-  const handlePreloaderComplete =
-    useCallback(() => {
-      if (SHOW_ONCE_PER_SESSION) {
-        try {
-          window.sessionStorage.setItem(
-            STORAGE_KEY,
-            "true",
-          );
-        } catch {
-          // Storage may be disabled.
-        }
+  const handlePreloaderComplete = useCallback(() => {
+    if (SHOW_ONCE_PER_SESSION) {
+      try {
+        window.sessionStorage.setItem(STORAGE_KEY, "true");
+      } catch {
+        // Ignore storage errors.
       }
+    }
 
-      setShowPreloader(false);
-    }, []);
+    setShowPreloader(false);
+  }, []);
 
   return (
-    <>
+    <div className={styles.entranceRoot}>
+      {/* Portfolio content */}
       <div
-        aria-hidden={
-          showPreloader || isCheckingSession
-        }
+        className={[
+          styles.portfolioContent,
+          showPreloader || !sessionChecked
+            ? styles.portfolioHidden
+            : styles.portfolioVisible,
+        ].join(" ")}
+        aria-hidden={showPreloader || !sessionChecked}
       >
         {children}
       </div>
 
-      {!isCheckingSession && showPreloader && (
+      {/* Loading screen */}
+      {showPreloader && (
         <PortfolioPreloader
           onComplete={handlePreloaderComplete}
         />
       )}
-    </>
+    </div>
   );
 }

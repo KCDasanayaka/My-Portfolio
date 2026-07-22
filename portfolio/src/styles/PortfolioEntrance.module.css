@@ -1,0 +1,31 @@
+.entranceRoot {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #020304;
+}
+
+.portfolioContent {
+  width: 100%;
+  min-height: 100vh;
+
+  transition: opacity 300ms ease;
+}
+
+.portfolioHidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.portfolioVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolioContent {
+    transition: none;
+  }
+}
