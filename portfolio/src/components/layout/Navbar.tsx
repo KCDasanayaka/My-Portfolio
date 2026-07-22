@@ -1,9 +1,13 @@
 "use client";
 
+import {
+  type CSSProperties,
+} from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Navbar.module.css";
+import menuvector from "../../../public/menu-vector.svg";
 
 const NAV_LINKS = [
   { label: "Home",     href: "/" },
@@ -72,100 +76,138 @@ export default function Navbar() {
         </nav>
       </header>
 
+      
       {/* ══════════════════════════════════════
-          FULL-SCREEN OVERLAY MENU
-      ══════════════════════════════════════ */}
-      <div
-        id="nav-overlay"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={[
-          styles.overlay,
-          menuOpen ? styles.overlayOpen : "",
-        ].join(" ")}
-      >
-        {/* ── Top row: logo + close ── */}
-        <div className={styles.overlayTop}>
-          <Link
-            href="/"
-            className={styles.logo}
-            onClick={() => setMenuOpen(false)}
-          >
-            <div className={styles.logoImage}>
-              <Image
-                src="/logo.png"
-                alt="KavinduChathuranga logo"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-            <div className={styles.logoText}>
-              <span className={styles.logoName}>KavinduChathuranga</span>
-              <span
-                className={styles.logoSub}
-                style={{ color: "rgba(255,255,255,0.55)" }}
-              >
-                By VISONEXT STUDIOS
-              </span>
-            </div>
-          </Link>
+    FULL-SCREEN OVERLAY MENU
+══════════════════════════════════════ */}
+<div
+  id="nav-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+  aria-hidden={!menuOpen}
+  className={[
+    styles.overlay,
+    menuOpen ? styles.overlayOpen : "",
+  ].join(" ")}
+>
+  {/* Decorative left panel */}
+  <div className={styles.overlayArtwork} aria-hidden="true">
+    <Image
+      src={menuvector}
+      alt=""
+    
+     
+      className={styles.overlayArtworkImage}
+    />
+  </div>
 
-          <button
-            className={styles.closeBtn}
-            onClick={() => setMenuOpen(false)}
-            aria-label="Close navigation menu"
+  {/* Main navigation */}
+  <div className={styles.overlayNavigation}>
+    <nav
+      className={styles.overlayNav}
+      aria-label="Overlay navigation"
+    >
+      <ul className={styles.overlayNavList}>
+        {NAV_LINKS.map(({ label, href }, index) => (
+          <li
+            key={href}
+            className={styles.overlayNavItem}
+            style={
+  {
+    "--link-index": index,
+  } as CSSProperties
+}
           >
-            close
-          </button>
-        </div>
-
-        {/* ── Nav links ── */}
-        <ul className={styles.navLinks}>
-          {NAV_LINKS.map(({ label, href }, i) => (
-            <li key={href} className={styles.navItem}>
-              <Link
-                href={href}
-                className={styles.navLink}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span className={styles.navIndex}>
-                  {String(i + 1).padStart(2, "0")}
+            <Link
+              href={href}
+              className={styles.overlayNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              {index !== 0 && (
+                <span
+                  className={styles.overlayHash}
+                  aria-hidden="true"
+                >
+                  #
                 </span>
-                <span className={styles.navLinkLabel}>{label}</span>
-                <span className={styles.navArrow} aria-hidden="true">→</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+              )}
 
-        {/* ── Footer ── */}
-        <div className={styles.overlayFooter}>
-          <p className={styles.footerCopy}>
-            © {new Date().getFullYear()} KavinduChathuranga · VISONEXT STUDIOS
-          </p>
-          <div className={styles.socialLinks}>
-            {[
-              { label: "Dribbble",  href: "#" },
-              { label: "LinkedIn",  href: "#" },
-              { label: "GitHub",    href: "#" },
-            ].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className={styles.socialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <span className={styles.overlayNavLabel}>
                 {label}
-              </a>
-            ))}
-          </div>
-        </div>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
 
-        {/* ── Blue accent bar ── */}
-        <div className={styles.overlayAccent} />
-      </div>
+  {/* Right information panel */}
+  <aside className={styles.overlayAside}>
+    <button
+      type="button"
+      className={styles.closeBtn}
+      onClick={() => setMenuOpen(false)}
+      aria-label="Close navigation menu"
+    >
+      close
+    </button>
+
+    <div className={styles.overlaySocials}>
+      {[
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/",
+        },
+        {
+          label: "Behance",
+          href: "https://www.behance.net/",
+        },
+        {
+          label: "Dribbble",
+          href: "https://dribbble.com/",
+        },
+        {
+          label: "Instagram",
+          href: "https://www.instagram.com/",
+        },
+      ].map(({ label, href }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.overlaySocialLink}
+        >
+          <span>{label}</span>
+
+          <span
+            className={styles.externalIcon}
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div className={styles.overlayContact}>
+      <p className={styles.contactMessage}>
+        Ready to start a project?
+        <br />
+        Let&apos;s work together
+      </p>
+
+      <a
+        href="mailto:sakcdasanayaka@gmail.com"
+        className={styles.contactEmail}
+      >
+        sakcdasanayaka@gmail.com
+      </a>
+    </div>
+  </aside>
+</div>
     </>
   );
 }
