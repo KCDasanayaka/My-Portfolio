@@ -373,9 +373,7 @@
 
   width: 100%;
   margin: 0;
-  padding:
-    clamp(34px, 5vw, 76px)
-    clamp(24px, 4vw, 72px);
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 3.5vw, 48px);
 
   border-radius: 0;
 
@@ -389,61 +387,48 @@
 }
 
 .ctaHeading {
-  margin: 0 0 10px;
-
-  color: var(--service-white);
-  font-size: clamp(1.55rem, 3vw, 3rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  color: #fff;
+  font-size: clamp(18px, 2.8vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .ctaSubtitle {
   margin: 0;
-
-  color: rgba(255, 255, 255, 0.76);
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(12px, 1.1vw, 16px);
   font-weight: 400;
-  line-height: 1.4;
 }
 
 .ctaBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-
-  flex: 0 0 auto;
-
-  min-width: 150px;
-  min-height: 54px;
-  padding: 0 26px;
-
-  border: 1px solid var(--service-white);
-  border-radius: 999px;
-
-  background: var(--service-white);
-  color: var(--service-blue);
-
-  font-size: 0.82rem;
+  background: #fff;
+  color: #000;
+  font-family: "Urbanist", sans-serif;
+  font-size: clamp(15px, 1.5vw, 20px);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.08em;
+  border: none;
+  border-radius: clamp(8px, 1vw, 14px);
+  padding: clamp(14px, 1.5vw, 20px) clamp(24px, 2.5vw, 36px);
+  cursor: pointer;
+  white-space: nowrap;
   text-decoration: none;
-  text-transform: uppercase;
-
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  flex-shrink: 0;
 }
 
 .ctaBtn:hover {
-  background: transparent;
-  color: var(--service-white);
-  transform: translateY(-2px);
+  transform: scale(1.04);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
 }
 
+.ctaBtn:active {
+  transform: scale(0.97);
+}
 
 /* ─────────────────────────────────────────
    SCROLL REVEAL
