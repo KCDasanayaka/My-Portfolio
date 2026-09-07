@@ -1,7 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import styles from "../../styles/AboutSection.module.css";
+
+function ArrowSVG() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function AboutSection() {
   /* ── Scroll-reveal: add .visible when element enters viewport ── */
@@ -67,6 +81,14 @@ export default function AboutSection() {
           and engineering precision to build interfaces that feel intuitive
           and impactful
         </p>
+        <div className={styles.mobileCtaRow}>
+            <Link href="/about" className={styles.ctaPill}>
+              <span className={styles.arrowCircle}>
+                <ArrowSVG />
+              </span>
+              <span className={styles.ctaLabel}>About Me</span>
+            </Link>
+          </div>
       </div>
 
     </section>

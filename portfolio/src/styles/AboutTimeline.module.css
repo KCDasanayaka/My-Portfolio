@@ -1,0 +1,496 @@
+.timelineSection {
+  position: relative;
+
+  width: 100%;
+
+  padding: clamp(100px, 12vw, 180px)
+    clamp(20px, 6vw, 100px)
+    clamp(120px, 15vw, 220px);
+
+  background: #111;
+
+  color: #fff;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.timelineHeader {
+  display: grid;
+
+  grid-template-columns: 80px 1fr;
+
+  align-items: start;
+
+  max-width: 1400px;
+
+  margin: 0 auto 140px;
+}
+
+
+.sectionNumber {
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #2C50F7;
+
+  letter-spacing: 0.08em;
+}
+
+
+.eyebrow {
+  margin: 0 0 15px;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+.timelineHeader h2 {
+  margin: 0;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: clamp(60px, 10vw, 150px);
+
+  line-height: 0.85;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline {
+  position: relative;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+
+/* CENTER LINE */
+
+.timelineLine {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.3) 5%,
+      rgba(255, 255, 255, 0.3) 95%,
+      transparent
+    );
+}
+
+
+/* ==========================================
+   ITEMS
+========================================== */
+
+.timelineItems {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 150px;
+}
+
+
+.timelineItem {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.timelineItem.left {
+  justify-content: flex-start;
+
+  padding-right: calc(50% + 70px);
+}
+
+
+.timelineItem.right {
+  justify-content: flex-end;
+
+  padding-left: calc(50% + 70px);
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.timelineCard {
+  width: 100%;
+
+  max-width: 500px;
+
+  padding: 36px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+
+.timelineCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(44, 80, 247, 0.7);
+
+  background: rgba(44, 80, 247, 0.05);
+}
+
+
+/* ==========================================
+   CARD TOP
+========================================== */
+
+.cardTop {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 50px;
+}
+
+
+.number {
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #2C50F7;
+}
+
+
+.year {
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.timelineCard h3 {
+  margin: 0 0 20px;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: clamp(30px, 4vw, 54px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+
+  font-weight: 700;
+}
+
+
+.role {
+  margin: 0 0 5px;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #fff;
+}
+
+
+.company {
+  margin: 0 0 25px;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 14px;
+
+  color: #2C50F7;
+}
+
+
+.description {
+  margin: 0;
+
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  font-weight: 300;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==========================================
+   CENTER DOT
+========================================== */
+
+.timelineDot {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  z-index: 3;
+}
+
+
+.timelineDot span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #2C50F7;
+
+  box-shadow: 0 0 20px rgba(44, 80, 247, 0.8);
+}
+
+
+/* ==========================================
+   END
+========================================== */
+
+.timelineEnd {
+  max-width: 1400px;
+
+  margin: 150px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+}
+
+
+.timelineEnd span {
+  font-family: "Urbanist", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  white-space: nowrap;
+}
+
+
+.timelineEnd div {
+  width: 100%;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .timelineHeader {
+    grid-template-columns: 50px 1fr;
+
+    margin-bottom: 100px;
+  }
+
+
+  .timelineItem.left,
+  .timelineItem.right {
+    padding-left: 70px;
+    padding-right: 0;
+
+    justify-content: flex-start;
+  }
+
+
+  .timelineLine {
+    left: 25px;
+
+    transform: none;
+  }
+
+
+  .timelineDot {
+    left: 25px;
+
+    transform: translate(-50%, -50%);
+  }
+
+
+  .timelineCard {
+    max-width: 100%;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .timelineSection {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  .timelineHeader {
+    display: block;
+
+    margin-bottom: 80px;
+  }
+
+
+  .timelineHeader .sectionNumber {
+    margin-bottom: 30px;
+  }
+
+
+  .timelineHeader h2 {
+    font-size: 18vw;
+  }
+
+
+  .timelineItems {
+    gap: 80px;
+  }
+
+
+  .timelineItem {
+    min-height: auto;
+  }
+
+
+  .timelineItem.left,
+  .timelineItem.right {
+    padding-left: 45px;
+  }
+
+
+  .timelineLine {
+    left: 18px;
+  }
+
+
+  .timelineDot {
+    left: 18px;
+
+    width: 15px;
+    height: 15px;
+  }
+
+
+  .timelineDot span {
+    width: 5px;
+    height: 5px;
+  }
+
+
+  .timelineCard {
+    padding: 25px;
+  }
+
+
+  .cardTop {
+    margin-bottom: 35px;
+  }
+
+
+  .timelineCard h3 {
+    font-size: 34px;
+  }
+
+
+  .timelineEnd {
+    margin-top: 100px;
+  }
+
+}
