@@ -11,10 +11,10 @@ import menuvector from "../../../public/menu-vector.svg";
 
 const NAV_LINKS = [
   { label: "Home",     href: "/" },
-  { label: "About",    href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Blog",     href: "/blog" },
-  { label: "Contact",  href: "/contact" },
+  { label: "About",    href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Services",     href: "/#services" },
+  { label: "Contact",  href: "/#contact" },
 ];
 
 export default function Navbar() {

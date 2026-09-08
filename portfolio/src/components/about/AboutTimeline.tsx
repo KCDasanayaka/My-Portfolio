@@ -4,18 +4,10 @@ import { motion } from "framer-motion";
 import styles from "@/styles/AboutTimeline.module.css";
 
 const timelineItems = [
-  {
-    number: "01",
-    year: "2020 / 2021",
-    title: "UNIVERSITY",
-    role: "BSc (Hons) in Computing & Information Systems",
-    company: "Sabaragamuwa University of Sri Lanka",
-    description:
-      "My academic journey gave me a strong foundation in computing, technology and problem solving while developing my interest in design and digital experiences.",
-  },
+
 
   {
-    number: "02",
+    number: "01",
     year: "INTERNSHIP",
     title: "UI/UX DESIGN",
     role: "UI/UX Designer Intern",
@@ -25,7 +17,7 @@ const timelineItems = [
   },
 
   {
-    number: "03",
+    number: "02",
     year: "FREELANCE",
     title: "INDEPENDENT WORK",
     role: "UI/UX · Web · Brand Design",
@@ -35,7 +27,7 @@ const timelineItems = [
   },
 
   {
-    number: "04",
+    number: "03",
     year: "NOW",
     title: "DESIGN × TECHNOLOGY",
     role: "UI/UX Engineer",
@@ -156,26 +148,21 @@ export default function AboutTimeline() {
               <div className={styles.timelineDot}>
                 <span />
               </div>
-
             </motion.article>
 
           ))}
 
         </div>
-
       </div>
 
 
       {/* END STATEMENT */}
 
       <div className={styles.timelineEnd}>
-
         <span>
           AND THE JOURNEY CONTINUES
         </span>
-
         <div />
-
       </div>
 
     </section>

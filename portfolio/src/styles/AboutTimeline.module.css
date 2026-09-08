@@ -1,16 +1,11 @@
 .timelineSection {
   position: relative;
-
   width: 100%;
-
-  padding: clamp(100px, 12vw, 180px)
+  padding: clamp(60px, 8vw, 120px)
     clamp(20px, 6vw, 100px)
-    clamp(120px, 15vw, 220px);
-
+    clamp(80px, 10vw, 120px);
   background: #111;
-
   color: #fff;
-
   overflow: hidden;
 }
 
