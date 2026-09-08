@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, scroll, spring } from "motion";
+import {
+  animate,
+  motionValue,
+  scroll,
+} from "motion";
 import styles from "@/styles/AboutScrollAnimation.module.css";
 
 const slides = [
@@ -48,77 +52,101 @@ export default function AboutScrollAnimation() {
   const trackRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
-  const section = sectionRef.current;
-  const track = trackRef.current;
+    const section = sectionRef.current;
+    const track = trackRef.current;
 
-  if (!section || !track) return;
+    if (!section || !track) return;
 
-  const items = Array.from(track.querySelectorAll("li"));
-  const headers = Array.from(
-    track.querySelectorAll("[data-scroll-title]")
-  );
+    const items = Array.from(track.querySelectorAll("li"));
+    const headers = Array.from(
+      track.querySelectorAll<HTMLElement>("[data-scroll-title]")
+    );
 
-  if (!items.length) return;
+    if (!items.length) return;
 
-  /*
-   * Horizontal movement
-   */
-  const horizontalAnimation = animate(
-    track,
-    {
-      transform: [
-        "translateX(0vw)",
-        `translateX(-${(items.length - 1) * 100}vw)`,
-      ],
-    },
-    {
-      easing: "linear",
-    }
-  );
+    /*
+     * ----------------------------------------
+     * Horizontal movement
+     * ----------------------------------------
+     */
 
-  const cancelHorizontal = scroll(horizontalAnimation, {
-    target: section,
-  });
+    const horizontalX = motionValue(0);
 
-  /*
-   * Individual title movement
-   */
-  const segmentLength = 1 / items.length;
+    const updateHorizontalPosition = (value: number) => {
+      track.style.transform = `translateX(${value}vw)`;
+    };
 
-  const cancelTitles = headers.map((header, index) => {
-    const start = index * segmentLength;
-    const end = (index + 1) * segmentLength;
+    horizontalX.on("change", updateHorizontalPosition);
 
-    const titleAnimation = animate(
-      header,
+    const horizontalAnimation = animate(
+      horizontalX,
+      [0, -(items.length - 1) * 100],
       {
-        transform: [
-          "translateX(18vw)",
-          "translateX(-18vw)",
-        ],
-      },
-      {
-        easing: "linear",
+        ease: "linear",
       }
     );
 
-    return scroll(titleAnimation, {
+    const cancelHorizontal = scroll(horizontalAnimation, {
       target: section,
-      offset: [
-        [start, 1],
-        [end, 0],
-      ],
     });
-  });
 
-  return () => {
-    cancelHorizontal();
+    /*
+     * ----------------------------------------
+     * Individual title movement
+     * ----------------------------------------
+     */
 
-    cancelTitles.forEach((cancel) => {
-      cancel();
+    const segmentLength = 1 / items.length;
+
+    const titleAnimations = headers.map((header, index) => {
+      const start = index * segmentLength;
+      const end = (index + 1) * segmentLength;
+
+      const titleX = motionValue(18);
+
+      const updateTitlePosition = (value: number) => {
+        header.style.transform = `translateX(${value}vw)`;
+      };
+
+      titleX.on("change", updateTitlePosition);
+
+      const titleAnimation = animate(
+        titleX,
+        [18, -18],
+        {
+          ease: "linear",
+        }
+      );
+
+      const cancelTitle = scroll(titleAnimation, {
+        target: section,
+        offset: [
+          [start, 1],
+          [end, 0],
+        ],
+      });
+
+      return () => {
+        cancelTitle();
+        titleX.destroy();
+      };
     });
-  };
-}, []);
+
+    /*
+     * ----------------------------------------
+     * Cleanup
+     * ----------------------------------------
+     */
+
+    return () => {
+      cancelHorizontal();
+      horizontalX.destroy();
+
+      titleAnimations.forEach((cancel) => {
+        cancel();
+      });
+    };
+  }, []);
 
   return (
     <section
@@ -133,7 +161,6 @@ export default function AboutScrollAnimation() {
         {/* Top information */}
         <div className={styles.topBar}>
           <div className={styles.sectionInfo}>
-        
             <p>HOW I WORK</p>
           </div>
 
@@ -204,10 +231,13 @@ export default function AboutScrollAnimation() {
                         <div className={styles.structureBox}>
                           <span>USER</span>
                         </div>
+
                         <div className={styles.structureLine} />
+
                         <div className={styles.structureBox}>
                           <span>FLOW</span>
                         </div>
+
                         <div className={styles.structureLine} />
 
                         <div className={styles.structureBox}>
@@ -218,29 +248,27 @@ export default function AboutScrollAnimation() {
 
                     {/* DESIGN */}
                     {slide.type === "design" && (
-                      <>
-                        <div className={styles.designWindow}>
-                          <div className={styles.windowHeader}>
-                            <span />
-                            <span />
-                            <span />
-                          </div>
+                      <div className={styles.designWindow}>
+                        <div className={styles.windowHeader}>
+                          <span />
+                          <span />
+                          <span />
+                        </div>
 
-                          <div className={styles.designBody}>
-                            <div className={styles.designSidebar} />
+                        <div className={styles.designBody}>
+                          <div className={styles.designSidebar} />
 
-                            <div className={styles.designContent}>
-                              <div className={styles.designHero} />
+                          <div className={styles.designContent}>
+                            <div className={styles.designHero} />
 
-                              <div className={styles.designCards}>
-                                <span />
-                                <span />
-                                <span />
-                              </div>
+                            <div className={styles.designCards}>
+                              <span />
+                              <span />
+                              <span />
                             </div>
                           </div>
                         </div>
-                      </>
+                      </div>
                     )}
 
                     {/* BUILD */}
@@ -259,8 +287,6 @@ export default function AboutScrollAnimation() {
                         </div>
                       </>
                     )}
-
-                    
                   </div>
                 </div>
               </div>
