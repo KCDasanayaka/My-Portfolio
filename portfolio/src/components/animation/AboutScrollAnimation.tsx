@@ -21,7 +21,7 @@ const slides = [
   {
     number: "02",
     label: "MAKE IT CLEAR",
-    title: "STRUCTURE",
+    title: "PLAN",
     description:
       "Turning ideas into meaningful experiences through information architecture, user flows and clear interaction logic.",
     tags: ["User Flows", "Architecture", "Logic"],
@@ -52,101 +52,252 @@ export default function AboutScrollAnimation() {
   const trackRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const track = trackRef.current;
+  const section = sectionRef.current;
+  const track = trackRef.current;
 
-    if (!section || !track) return;
+  if (!section || !track) return;
 
-    const items = Array.from(track.querySelectorAll("li"));
-    const headers = Array.from(
-      track.querySelectorAll<HTMLElement>("[data-scroll-title]")
+  const items = Array.from(track.querySelectorAll("li"));
+
+  const headers = Array.from(
+    track.querySelectorAll<HTMLElement>("[data-scroll-title]")
+  );
+
+  if (!items.length) return;
+
+  /*
+   * ----------------------------------------
+   * RESPONSIVE
+   * ----------------------------------------
+   */
+
+  const mobileQuery = window.matchMedia("(max-width: 600px)");
+  const isMobile = mobileQuery.matches;
+
+  /*
+   * ----------------------------------------
+   * SCROLL TIMING
+   * ----------------------------------------
+   *
+   * INITIAL_X
+   *
+   * Controls where the first slide appears
+   * when the section becomes sticky.
+   *
+   * Desktop:
+   * -45vw = THINK is already partly leaving
+   *
+   * Mobile:
+   * 0vw = THINK starts normally
+   */
+
+  const INITIAL_X = isMobile ? 0 : 0;
+
+  /*
+   * ----------------------------------------
+   * START / END TIMING
+   * ----------------------------------------
+   *
+   * 0.00 = section enters
+   * 1.00 = section leaves
+   *
+   * Horizontal movement happens only
+   * between START_PROGRESS and END_PROGRESS.
+   */
+
+  const START_PROGRESS = 0.00;
+
+  const END_PROGRESS = 1;
+  /*
+   * ----------------------------------------
+   * FINAL POSITION
+   * ----------------------------------------
+   *
+   * Normally:
+   *
+   * -(4 - 1) * 100 = -300vw
+   *
+   * But -300 would completely bring BUILD
+   * into the viewport.
+   *
+   * -270 means BUILD starts entering,
+   * but the animation finishes before
+   * BUILD becomes fully visible.
+   */
+
+  const FINAL_X = isMobile ? -300 : -300;
+
+  /*
+   * ----------------------------------------
+   * HELPERS
+   * ----------------------------------------
+   */
+
+  const clamp = (
+    value: number,
+    min: number,
+    max: number
+  ) => {
+    return Math.min(Math.max(value, min), max);
+  };
+
+  const lerp = (
+    start: number,
+    end: number,
+    progress: number
+  ) => {
+    return start + (end - start) * progress;
+  };
+
+  /*
+   * ----------------------------------------
+   * HORIZONTAL POSITION
+   * ----------------------------------------
+   */
+
+  const horizontalX = motionValue(INITIAL_X);
+
+  const updateHorizontalPosition = (value: number) => {
+    track.style.transform =
+      `translate3d(${value}vw, 0, 0)`;
+  };
+
+  const unsubscribeHorizontal =
+    horizontalX.on(
+      "change",
+      updateHorizontalPosition
     );
 
-    if (!items.length) return;
+  /*
+   * Set initial position immediately.
+   */
 
-    /*
-     * ----------------------------------------
-     * Horizontal movement
-     * ----------------------------------------
-     */
+  horizontalX.set(INITIAL_X);
 
-    const horizontalX = motionValue(0);
+  /*
+   * ----------------------------------------
+   * SCROLL-LINKED ANIMATION
+   * ----------------------------------------
+   */
 
-    const updateHorizontalPosition = (value: number) => {
-      track.style.transform = `translateX(${value}vw)`;
-    };
+  const cancelScroll = scroll(
+    (progress: number) => {
 
-    horizontalX.on("change", updateHorizontalPosition);
+      /*
+       * Convert the full section scroll
+       * into our custom animation range.
+       *
+       * Example:
+       *
+       * 0%   -> 0
+       * 40%  -> 0.5
+       * 80%  -> 1
+       * 100% -> 1
+       */
 
-    const horizontalAnimation = animate(
-      horizontalX,
-      [0, -(items.length - 1) * 100],
-      {
-        ease: "linear",
-      }
-    );
-
-    const cancelHorizontal = scroll(horizontalAnimation, {
-      target: section,
-    });
-
-    /*
-     * ----------------------------------------
-     * Individual title movement
-     * ----------------------------------------
-     */
-
-    const segmentLength = 1 / items.length;
-
-    const titleAnimations = headers.map((header, index) => {
-      const start = index * segmentLength;
-      const end = (index + 1) * segmentLength;
-
-      const titleX = motionValue(18);
-
-      const updateTitlePosition = (value: number) => {
-        header.style.transform = `translateX(${value}vw)`;
-      };
-
-      titleX.on("change", updateTitlePosition);
-
-      const titleAnimation = animate(
-        titleX,
-        [18, -18],
-        {
-          ease: "linear",
-        }
+      const animationProgress = clamp(
+        (progress - START_PROGRESS) /
+          (END_PROGRESS - START_PROGRESS),
+        0,
+        1
       );
 
-      const cancelTitle = scroll(titleAnimation, {
-        target: section,
-        offset: [
-          [start, 1],
-          [end, 0],
-        ],
+      /*
+       * ------------------------------------
+       * HORIZONTAL SLIDE
+       * ------------------------------------
+       */
+
+      const currentX = lerp(
+        INITIAL_X,
+        FINAL_X,
+        animationProgress
+      );
+
+      horizontalX.set(currentX);
+
+      /*
+       * ------------------------------------
+       * TITLE ANIMATION
+       * ------------------------------------
+       *
+       * Each title gets its own section
+       * of the horizontal animation.
+       *
+       * THINK
+       * 0   -> 25%
+       *
+       * PLAN
+       * 25% -> 50%
+       *
+       * DESIGN
+       * 50% -> 75%
+       *
+       * BUILD
+       * 75% -> 100%
+       */
+
+      headers.forEach((header, index) => {
+
+        const slideStart =
+          index / items.length;
+
+        const slideEnd =
+          (index + 1) / items.length;
+
+        const titleProgress = clamp(
+          (animationProgress - slideStart) /
+            (slideEnd - slideStart),
+          0,
+          1
+        );
+
+        /*
+         * Desktop:
+         *
+         * -8vw -> -18vw
+         *
+         * Mobile:
+         *
+         * 0 -> 0
+         *
+         * This prevents title clipping.
+         */
+
+        const titleStartX =
+          isMobile ? 0 : 8;
+
+        const titleEndX =
+          isMobile ? 0 : -18;
+
+        const titleX = lerp(
+          titleStartX,
+          titleEndX,
+          titleProgress
+        );
+
+        header.style.transform =
+          `translate3d(${titleX}vw, 0, 0)`;
       });
+    },
+    {
+      target: section,
+    }
+  );
 
-      return () => {
-        cancelTitle();
-        titleX.destroy();
-      };
-    });
+  /*
+   * ----------------------------------------
+   * CLEANUP
+   * ----------------------------------------
+   */
 
-    /*
-     * ----------------------------------------
-     * Cleanup
-     * ----------------------------------------
-     */
+  return () => {
+    cancelScroll();
+    unsubscribeHorizontal();
+    horizontalX.destroy();
+  };
 
-    return () => {
-      cancelHorizontal();
-      horizontalX.destroy();
-
-      titleAnimations.forEach((cancel) => {
-        cancel();
-      });
-    };
-  }, []);
+}, []);
 
   return (
     <section
@@ -154,23 +305,34 @@ export default function AboutScrollAnimation() {
       className={styles.scrollSection}
     >
       <div className={styles.stickyViewport}>
-        {/* Background details */}
+
+        {/* --------------------------------
+            BACKGROUND
+        -------------------------------- */}
+
         <div className={styles.gridBackground} />
         <div className={styles.blueGlow} />
 
-        {/* Top information */}
+        {/* --------------------------------
+            TOP BAR
+        -------------------------------- */}
+
         <div className={styles.topBar}>
           <div className={styles.sectionInfo}>
             <p>HOW I WORK</p>
           </div>
-
           <div className={styles.scrollHint}>
             <span>SCROLL TO EXPLORE</span>
-            <div className={styles.scrollArrow}>↓</div>
+            <div className={styles.scrollArrow}>
+              ↓
+            </div>
           </div>
         </div>
 
-        {/* Horizontal content */}
+        {/* --------------------------------
+            HORIZONTAL CONTENT
+        -------------------------------- */}
+
         <ul
           ref={trackRef}
           className={styles.horizontalTrack}
@@ -181,8 +343,13 @@ export default function AboutScrollAnimation() {
               className={styles.slide}
             >
               <div className={styles.slideContent}>
-                {/* Left information */}
+
+                {/* --------------------------------
+                    TEXT
+                -------------------------------- */}
+
                 <div className={styles.textArea}>
+
                   <div className={styles.slideNumber}>
                     {slide.number}
                   </div>
@@ -201,22 +368,33 @@ export default function AboutScrollAnimation() {
 
                   <div className={styles.tags}>
                     {slide.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
+                      <span key={tag}>
+                        {tag}
+                      </span>
                     ))}
                   </div>
+
                 </div>
 
-                {/* Right visual */}
+                {/* --------------------------------
+                    VISUAL
+                -------------------------------- */}
+
                 <div className={styles.visualArea}>
                   <div
                     className={`${styles.visual} ${styles[slide.type]}`}
                   >
+
                     {/* THINK */}
+
                     {slide.type === "think" && (
                       <>
                         <div className={styles.thinkCircle} />
+
                         <div className={styles.thinkLine} />
+
                         <div className={styles.thinkDot} />
+
                         <div className={styles.thinkDotTwo} />
 
                         <span className={styles.visualWord}>
@@ -226,8 +404,10 @@ export default function AboutScrollAnimation() {
                     )}
 
                     {/* STRUCTURE */}
+
                     {slide.type === "structure" && (
-                      <>
+                      <div className={styles.structureDiagram}>
+
                         <div className={styles.structureBox}>
                           <span>USER</span>
                         </div>
@@ -240,15 +420,20 @@ export default function AboutScrollAnimation() {
 
                         <div className={styles.structureLine} />
 
-                        <div className={styles.structureBox}>
+                        <div
+                          className={`${styles.structureBox} ${styles.structureBoxActive}`}
+                        >
                           <span>PRODUCT</span>
                         </div>
-                      </>
+
+                      </div>
                     )}
 
                     {/* DESIGN */}
+
                     {slide.type === "design" && (
                       <div className={styles.designWindow}>
+
                         <div className={styles.windowHeader}>
                           <span />
                           <span />
@@ -256,9 +441,11 @@ export default function AboutScrollAnimation() {
                         </div>
 
                         <div className={styles.designBody}>
+
                           <div className={styles.designSidebar} />
 
                           <div className={styles.designContent}>
+
                             <div className={styles.designHero} />
 
                             <div className={styles.designCards}>
@@ -266,12 +453,16 @@ export default function AboutScrollAnimation() {
                               <span />
                               <span />
                             </div>
+
                           </div>
+
                         </div>
+
                       </div>
                     )}
 
                     {/* BUILD */}
+
                     {slide.type === "build" && (
                       <>
                         <div className={styles.buildShape}>
@@ -287,29 +478,43 @@ export default function AboutScrollAnimation() {
                         </div>
                       </>
                     )}
+
                   </div>
                 </div>
+
               </div>
             </li>
           ))}
         </ul>
 
-        {/* Bottom progress */}
+        {/* --------------------------------
+            BOTTOM PROGRESS
+        -------------------------------- */}
+
         <div className={styles.bottomBar}>
+
           <div className={styles.progressTrack}>
+
+            <div className={styles.progressLine} />
+
             <div className={styles.progressSegments}>
+
               {slides.map((slide) => (
                 <span key={slide.number}>
                   {slide.number}
                 </span>
               ))}
+
             </div>
+
           </div>
 
           <span className={styles.bottomText}>
             DESIGN × TECHNOLOGY
           </span>
+
         </div>
+
       </div>
     </section>
   );
