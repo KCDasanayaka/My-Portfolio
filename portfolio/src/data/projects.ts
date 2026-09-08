@@ -1,17 +1,19 @@
+import BookMyBusImage from "../app/projects/BookMyBus.jpg";
+
 interface Project {
     id: number;
     title: string;
     subtitle: string;
-    image: string;
+    image: string | { src: string };
     href: string;
 }
 
 export const projects: Project[] = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        subtitle: "Full-stack marketplace solution",
-        image: "/projects/ecommerce.jpg",
+        title: "BookMyBus",
+        subtitle: "Long-Distance Bus Booking App",
+        image: BookMyBusImage,
         href: "/projects/ecommerce",
     },
     {

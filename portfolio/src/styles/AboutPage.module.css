@@ -1,8 +1,8 @@
 .aboutPage {
   width: 100%;
-  background: #000000;
+  background: #0c0c0c;
   color: #ffffff;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 

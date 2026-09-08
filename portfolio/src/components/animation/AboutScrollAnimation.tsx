@@ -1,273 +1,290 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-
-import { useRef } from "react";
-
+import { useEffect, useRef } from "react";
+import { animate, scroll, spring } from "motion";
 import styles from "@/styles/AboutScrollAnimation.module.css";
 
+const slides = [
+  {
+    number: "01",
+    label: "THE FIRST STEP",
+    title: "THINK",
+    description:
+      "Understanding the problem before designing the solution. I explore users, business goals, context and opportunities to discover what actually needs to be solved.",
+    tags: ["Research", "Users", "Strategy"],
+    type: "think",
+  },
+  {
+    number: "02",
+    label: "MAKE IT CLEAR",
+    title: "STRUCTURE",
+    description:
+      "Turning ideas into meaningful experiences through information architecture, user flows and clear interaction logic.",
+    tags: ["User Flows", "Architecture", "Logic"],
+    type: "structure",
+  },
+  {
+    number: "03",
+    label: "CREATE THE EXPERIENCE",
+    title: "DESIGN",
+    description:
+      "Creating interfaces that feel simple, intentional and visually engaging while maintaining consistency across the entire experience.",
+    tags: ["UI Design", "Systems", "Prototype"],
+    type: "design",
+  },
+  {
+    number: "04",
+    label: "BRING IT TO LIFE",
+    title: "BUILD",
+    description:
+      "Connecting design and technology to create experiences that are practical, responsive and ready for the real world.",
+    tags: ["Development", "Interaction", "Experience"],
+    type: "build",
+  },
+];
+
 export default function AboutScrollAnimation() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const trackRef = useRef<HTMLUListElement | null>(null);
 
-  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+  const section = sectionRef.current;
+  const track = trackRef.current;
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
+  if (!section || !track) return;
+
+  const items = Array.from(track.querySelectorAll("li"));
+  const headers = Array.from(
+    track.querySelectorAll("[data-scroll-title]")
+  );
+
+  if (!items.length) return;
+
+  /*
+   * Horizontal movement
+   */
+  const horizontalAnimation = animate(
+    track,
+    {
+      transform: [
+        "translateX(0vw)",
+        `translateX(-${(items.length - 1) * 100}vw)`,
+      ],
+    },
+    {
+      easing: "linear",
+    }
+  );
+
+  const cancelHorizontal = scroll(horizontalAnimation, {
+    target: section,
   });
 
-
   /*
-   * Controls how much of the SVG path is visible.
-   *
-   * At the beginning:
-   * 0% of the path is visible.
-   *
-   * At the end:
-   * 100% of the path is visible.
+   * Individual title movement
    */
-  const pathLength = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 1]
-  );
+  const segmentLength = 1 / items.length;
 
+  const cancelTitles = headers.map((header, index) => {
+    const start = index * segmentLength;
+    const end = (index + 1) * segmentLength;
 
-  /*
-   * Text progression
-   */
-  const thinkOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.22],
-    [1, 1, 0]
-  );
+    const titleAnimation = animate(
+      header,
+      {
+        transform: [
+          "translateX(18vw)",
+          "translateX(-18vw)",
+        ],
+      },
+      {
+        easing: "linear",
+      }
+    );
 
-  const structureOpacity = useTransform(
-    scrollYProgress,
-    [0.18, 0.30, 0.40],
-    [0, 1, 0]
-  );
+    return scroll(titleAnimation, {
+      target: section,
+      offset: [
+        [start, 1],
+        [end, 0],
+      ],
+    });
+  });
 
-  const designOpacity = useTransform(
-    scrollYProgress,
-    [0.36, 0.48, 0.58],
-    [0, 1, 0]
-  );
+  return () => {
+    cancelHorizontal();
 
-  const buildOpacity = useTransform(
-    scrollYProgress,
-    [0.55, 0.68, 0.80],
-    [0, 1, 0]
-  );
-
-  const finalOpacity = useTransform(
-    scrollYProgress,
-    [0.76, 0.90, 1],
-    [0, 1, 1]
-  );
-
-
-  /*
-   * Text movement
-   */
-  const thinkY = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    [0, -80]
-  );
-
-  const structureY = useTransform(
-    scrollYProgress,
-    [0.18, 0.4],
-    [80, -60]
-  );
-
-  const designY = useTransform(
-    scrollYProgress,
-    [0.36, 0.58],
-    [80, -60]
-  );
-
-  const buildY = useTransform(
-    scrollYProgress,
-    [0.55, 0.80],
-    [80, -60]
-  );
-
-  const finalY = useTransform(
-    scrollYProgress,
-    [0.76, 1],
-    [80, 0]
-  );
-
+    cancelTitles.forEach((cancel) => {
+      cancel();
+    });
+  };
+}, []);
 
   return (
     <section
       ref={sectionRef}
       className={styles.scrollSection}
     >
+      <div className={styles.stickyViewport}>
+        {/* Background details */}
+        <div className={styles.gridBackground} />
+        <div className={styles.blueGlow} />
 
-      {/* =================================================
-          STICKY VIEWPORT
-      ================================================= */}
+        {/* Top information */}
+        <div className={styles.topBar}>
+          <div className={styles.sectionInfo}>
+        
+            <p>HOW I WORK</p>
+          </div>
 
-      <div className={styles.stickyArea}>
-
-
-        {/* BACKGROUND LABEL */}
-
-        <div className={styles.backgroundLabel}>
-          HOW I THINK
+          <div className={styles.scrollHint}>
+            <span>SCROLL TO EXPLORE</span>
+            <div className={styles.scrollArrow}>↓</div>
+          </div>
         </div>
 
-
-        {/* =================================================
-            SVG LINE
-        ================================================= */}
-
-        <svg
-          className={styles.scrollSvg}
-          viewBox="0 0 1000 1600"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
+        {/* Horizontal content */}
+        <ul
+          ref={trackRef}
+          className={styles.horizontalTrack}
         >
+          {slides.map((slide) => (
+            <li
+              key={slide.number}
+              className={styles.slide}
+            >
+              <div className={styles.slideContent}>
+                {/* Left information */}
+                <div className={styles.textArea}>
+                  <div className={styles.slideNumber}>
+                    {slide.number}
+                  </div>
 
-          <motion.path
-            d="
-              M 500 0
+                  <div className={styles.slideLabel}>
+                    {slide.label}
+                  </div>
 
-              C 500 130
-                160 160
-                250 300
+                  <h2 data-scroll-title>
+                    {slide.title}
+                  </h2>
 
-              C 340 440
-                850 360
-                720 520
+                  <p className={styles.description}>
+                    {slide.description}
+                  </p>
 
-              C 580 690
-                130 600
-                250 820
+                  <div className={styles.tags}>
+                    {slide.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
 
-              C 390 1030
-                870 900
-                740 1100
+                {/* Right visual */}
+                <div className={styles.visualArea}>
+                  <div
+                    className={`${styles.visual} ${styles[slide.type]}`}
+                  >
+                    {/* THINK */}
+                    {slide.type === "think" && (
+                      <>
+                        <div className={styles.thinkCircle} />
+                        <div className={styles.thinkLine} />
+                        <div className={styles.thinkDot} />
+                        <div className={styles.thinkDotTwo} />
 
-              C 610 1290
-                280 1180
-                430 1400
+                        <span className={styles.visualWord}>
+                          WHY?
+                        </span>
+                      </>
+                    )}
 
-              C 480 1470
-                520 1520
-                500 1600
-            "
+                    {/* STRUCTURE */}
+                    {slide.type === "structure" && (
+                      <>
+                        <div className={styles.structureBox}>
+                          <span>USER</span>
+                        </div>
+                        <div className={styles.structureLine} />
+                        <div className={styles.structureBox}>
+                          <span>FLOW</span>
+                        </div>
+                        <div className={styles.structureLine} />
 
-            stroke="#2C50F7"
-            strokeWidth="5"
-            strokeLinecap="round"
+                        <div className={styles.structureBox}>
+                          <span>PRODUCT</span>
+                        </div>
+                      </>
+                    )}
 
-            style={{
-              pathLength,
-              opacity: 0.9,
-            }}
-          />
+                    {/* DESIGN */}
+                    {slide.type === "design" && (
+                      <>
+                        <div className={styles.designWindow}>
+                          <div className={styles.windowHeader}>
+                            <span />
+                            <span />
+                            <span />
+                          </div>
 
-        </svg>
+                          <div className={styles.designBody}>
+                            <div className={styles.designSidebar} />
 
+                            <div className={styles.designContent}>
+                              <div className={styles.designHero} />
 
-        {/* =================================================
-            SCROLL WORDS
-        ================================================= */}
+                              <div className={styles.designCards}>
+                                <span />
+                                <span />
+                                <span />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
 
-        <div className={styles.wordContainer}>
+                    {/* BUILD */}
+                    {slide.type === "build" && (
+                      <>
+                        <div className={styles.buildShape}>
+                          <div />
+                          <div />
+                          <div />
+                        </div>
 
-          <motion.div
-            className={styles.word}
-            style={{
-              opacity: thinkOpacity,
-              y: thinkY,
-            }}
-          >
-            THINK
-          </motion.div>
+                        <div className={styles.buildCode}>
+                          <span>{"<design />"}</span>
+                          <span>{"<build />"}</span>
+                          <span>{"<experience />"}</span>
+                        </div>
+                      </>
+                    )}
 
+                    
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-          <motion.div
-            className={styles.word}
-            style={{
-              opacity: structureOpacity,
-              y: structureY,
-            }}
-          >
-            STRUCTURE
-          </motion.div>
+        {/* Bottom progress */}
+        <div className={styles.bottomBar}>
+          <div className={styles.progressTrack}>
+            <div className={styles.progressSegments}>
+              {slides.map((slide) => (
+                <span key={slide.number}>
+                  {slide.number}
+                </span>
+              ))}
+            </div>
+          </div>
 
-
-          <motion.div
-            className={styles.word}
-            style={{
-              opacity: designOpacity,
-              y: designY,
-            }}
-          >
-            DESIGN
-          </motion.div>
-
-
-          <motion.div
-            className={styles.word}
-            style={{
-              opacity: buildOpacity,
-              y: buildY,
-            }}
-          >
-            BUILD
-          </motion.div>
-
-
-          <motion.div
-            className={`${styles.word} ${styles.finalWord}`}
-            style={{
-              opacity: finalOpacity,
-              y: finalY,
-            }}
-          >
-            <span>THIS IS</span>
-            HOW I WORK.
-          </motion.div>
-
-        </div>
-
-
-        {/* =================================================
-            SCROLL INDICATOR
-        ================================================= */}
-
-        <div className={styles.scrollIndicator}>
-
-          <span>
-            SCROLL
+          <span className={styles.bottomText}>
+            DESIGN × TECHNOLOGY
           </span>
-
-          <div className={styles.scrollLine} />
-
         </div>
-
-
-        {/* PROGRESS */}
-        <motion.div
-          className={styles.progress}
-          style={{
-            scaleX: scrollYProgress,
-          }}
-        />
-
       </div>
-
     </section>
   );
 }

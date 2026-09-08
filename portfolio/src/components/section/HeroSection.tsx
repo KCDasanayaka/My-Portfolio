@@ -146,7 +146,7 @@ export default function HeroSection() {
             Developer, and Brand Designer creating intuitive experiences,
             modern interfaces, and impactful brands
           </p>
-          <Link href="/contact" className={styles.ctaPill}>
+          <Link href="/#contact" className={styles.ctaPill}>
             <span className={styles.arrowCircle}>
               <ArrowSVG />
             </span>
