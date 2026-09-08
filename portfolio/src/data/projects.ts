@@ -4,7 +4,7 @@ interface Project {
     id: number;
     title: string;
     subtitle: string;
-    image: string | { src: string };
+    image: string;
     href: string;
 }
 
@@ -13,7 +13,7 @@ export const projects: Project[] = [
         id: 1,
         title: "BookMyBus",
         subtitle: "Long-Distance Bus Booking App",
-        image: BookMyBusImage,
+        image: "/projects/BookMyBus.jpg",
         href: "/projects/ecommerce",
     },
     {
