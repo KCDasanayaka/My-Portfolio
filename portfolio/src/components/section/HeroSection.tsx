@@ -142,8 +142,7 @@ export default function HeroSection() {
         {/* Right copy */}
         <div className={styles.rightBlock}>
           <p className={styles.bio}>
-            I&apos;m Kavindu Chathuranga, a UI/UX Engineer, Frontend
-            Developer, and Brand Designer creating intuitive experiences,
+            I&apos;m Kavindu Chathuranga, a UI/UX Engineer, and Brand Designer creating intuitive experiences,
             modern interfaces, and impactful brands
           </p>
           <Link href="/#contact" className={styles.ctaPill}>

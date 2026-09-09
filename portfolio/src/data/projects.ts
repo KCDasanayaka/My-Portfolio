@@ -55,7 +55,7 @@ export const projects: Project[] = [
     title: "BookMyBus",
     subtitle: "Long-Distance Bus Booking App",
 
-    image: "/projects/BookMyBus.png",
+    image: "/projects/BookMyBus.webp",
     href: "/projects/bookmybus",
 
     slug: "bookmybus",
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       "A user-focused long-distance bus booking experience designed to make searching, selecting and booking intercity bus journeys simple and intuitive.",
 
-    heroImage: "/projects/BookMyBus.png",
+    heroImage: "/projects/BookMyBus1.webp",
     heroPosition: "center",
 
     links: {
@@ -93,27 +93,27 @@ export const projects: Project[] = [
 
     images: [
       {
-        src: "/projects/bookmybus/1.jpg",
+        src: "/projects/bookmybus/1.webp",
         alt: "BookMyBus project screen 01",
       },
       {
-        src: "/projects/bookmybus/2.jpg",
+        src: "/projects/bookmybus/2.webp",
         alt: "BookMyBus project screen 02",
       },
       {
-        src: "/projects/bookmybus/3.jpg",
+        src: "/projects/bookmybus/3.webp",
         alt: "BookMyBus project screen 03",
       },
       {
-        src: "/projects/bookmybus/4.jpg",
+        src: "/projects/bookmybus/4.webp",
         alt: "BookMyBus project screen 04",
       },
       {
-        src: "/projects/bookmybus/5.jpg",
+        src: "/projects/bookmybus/5.webp",
         alt: "BookMyBus project screen 05",
       },
       {
-        src: "/projects/bookmybus/6.jpg",
+        src: "/projects/bookmybus/6.webp",
         alt: "BookMyBus project screen 06",
       },
       {
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     id: 2,
 
     title: "ChildCare",
-    subtitle: "Collaborative productivity tool",
+    subtitle: "UX Research & UI Design Case Study",
 
     image: "/projects/childCare.jpg",
     href: "/projects/childcare",
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     slug: "childcare",
 
     year: "2026",
-    role: "UI/UX Designer",
+    role: "Branding & UI/UX Designer",
     category: "Web Application",
 
     description:
@@ -146,8 +146,8 @@ export const projects: Project[] = [
     heroPosition: "center",
 
     links: {
-      behance: "",
-      dribbble: "",
+      behance: "https://www.behance.net/gallery/255335983/ChildCare-UX-Research-UI-Design-Case-Study",
+      dribbble: "https://dribbble.com/shots/27708034-ChildCare-UX-Research-UI-Design-Case-Study",
       github: "",
       live: "",
     },
@@ -183,26 +183,26 @@ export const projects: Project[] = [
     id: 3,
 
     title: "NatureWinYala",
-    subtitle: "Real-time data visualization",
+    subtitle: "Hotel Web Design",
 
-    image: "/projects/natureWinYala.jpg",
+    image: "/projects/natureWinYala.webp",
     href: "/projects/naturewinyala",
 
     slug: "naturewinyala",
 
     year: "2026",
-    role: "UI/UX Designer",
+    role: "UI/UX Designer & Frondend Dev",
     category: "Web Experience",
 
     description:
-      "A digital experience created around presenting nature, wildlife and real-time information through a visually engaging interface.",
+      "Nature Win yala is a hospitality destination and goal of this project was to craft a website that translates this natural serenity into a seamless digital journey",
 
     heroImage: "/projects/natureWinYala.jpg",
     heroPosition: "center",
 
     links: {
-      behance: "",
-      dribbble: "",
+      behance: "https://www.behance.net/gallery/245191133/Nature-Win-Yala-Hotel-Web-Design",
+      dribbble: "https://dribbble.com/shots/27148054-Nature-Win-Yala-Hotel-Web-Design",
       github: "",
       live: "",
     },
@@ -223,13 +223,9 @@ export const projects: Project[] = [
 
     images: [
       {
-        src: "/projects/NatureWinYala/1.jpg",
+        src: "/projects/NatureWinYala/1.webp",
         alt: "NatureWinYala project screen 01",
-      },
-      {
-        src: "/projects/NatureWinYala/02.jpg",
-        alt: "NatureWinYala project screen 02",
-      },
+      }
     ],
   },
 
@@ -237,21 +233,21 @@ export const projects: Project[] = [
     id: 4,
 
     title: "UGC",
-    subtitle: "Interactive content sharing",
+    subtitle: "UX/UI case study ",
 
-    image: "/projects/ugc.jpg",
+    image: "/projects/ugc.webp",
     href: "/projects/ugc",
 
     slug: "ugc",
 
-    year: "2026",
+    year: "2025",
     role: "UI/UX Designer",
     category: "Web Platform",
 
     description:
-      "An interactive content-sharing platform designed around discovering, creating and engaging with user-generated content.",
+      "UX/UI case study focused on improving the usability, accessibility, and overall experience of one of Sri Lanka's most critical educational platforms.",
 
-    heroImage: "/projects/ugc.jpg",
+    heroImage: "/projects/ugc.webp",
     heroPosition: "center",
 
     links: {
@@ -288,26 +284,26 @@ export const projects: Project[] = [
     id: 5,
 
     title: "Quantum",
-    subtitle: "Audio platform with playlists",
+    subtitle: "BRANDING • UI/UX • WEB",
 
-    image: "/projects/quantum.jpg",
+    image: "/projects/quantum.webp",
     href: "/projects/quantum",
 
     slug: "quantum",
 
     year: "2026",
-    role: "UI/UX Designer",
-    category: "Audio Platform",
+    role: "Branding & UI/UX Designer",
+    category: "Hospitality Consulting",
 
     description:
-      "A modern audio experience designed around music discovery, playlists and seamless content navigation.",
+      "Professional Brand Created To Help Businesses Navigate The Complexities Of Modern Hospitality Through Expertise, Strategic Guidance And Practical Solutions.",
 
-    heroImage: "/projects/quantum.jpg",
+    heroImage: "/projects/quantum.webp",
     heroPosition: "center",
 
     links: {
-      behance: "",
-      dribbble: "",
+      behance: "https://www.behance.net/gallery/255236743/QUANTUM-HOSPITALITY-BRANDING-UIUX-WEB",
+      dribbble: "https://dribbble.com/shots/27702487-QUANTUM-HOSPITALITY-EXPERTS-BRANDING-UI-UX-WEB",
       github: "",
       live: "",
     },
@@ -328,11 +324,11 @@ export const projects: Project[] = [
 
     images: [
       {
-        src: "/projects/Quantum/1.jpg",
+        src: "/projects/Quantum/1.webp",
         alt: "Quantum project screen 01",
       },
       {
-        src: "/projects/Quantum/2.jpg",
+        src: "/projects/Quantum/2.webp",
         alt: "Quantum project screen 02",
       },
     ],
@@ -342,26 +338,26 @@ export const projects: Project[] = [
     id: 6,
 
     title: "BuildMatePlus",
-    subtitle: "Forecast and climate insights",
+    subtitle: "Construction Enablement Platform",
 
-    image: "/projects/buildMatePlus.jpg",
+    image: "/projects/buildMatePlus.webp",
     href: "/projects/buildmateplus",
 
     slug: "buildmateplus",
 
-    year: "2026",
-    role: "UI/UX Designer",
+    year: "2025",
+    role: "UI/UX Designer & Frontend Dev",
     category: "Web Application",
 
     description:
-      "A digital platform designed to present forecast and climate information through clear visualizations and accessible insights.",
+      "Innovative construction enablement platform designed to simplify project management, enhance collaboration, and connect clients with industry professionals.",
 
-    heroImage: "/projects/buildMatePlus.jpg",
+    heroImage: "/projects/buildMatePlus.webp",
     heroPosition: "center",
 
     links: {
-      behance: "",
-      dribbble: "",
+      behance: "https://www.behance.net/gallery/219426941/BuildMate-Construction-Enablement-Platform",
+      dribbble: "https://dribbble.com/shots/27717236-BuildMate-Construction-Enablement-Platform?new_shot_upload=true&utm_source=Clipboard_Shot&utm_campaign=Kavindu_Chathuranga_01&utm_content=BuildMate%2B%20-%20Construction%20Enablement%20Platform&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Kavindu_Chathuranga_01&utm_content=BuildMate%2B%20-%20Construction%20Enablement%20Platform&utm_medium=Social_Share",
       github: "",
       live: "",
     },
@@ -382,11 +378,11 @@ export const projects: Project[] = [
 
     images: [
       {
-        src: "/projects/BuildMatePlus/01.jpg",
+        src: "/projects/buildMatePlus/1.jpg",
         alt: "BuildMatePlus project screen 01",
       },
       {
-        src: "/projects/BuildMatePlus/02.jpg",
+        src: "/projects/buildMatePlus/2.jpg",
         alt: "BuildMatePlus project screen 02",
       },
     ],

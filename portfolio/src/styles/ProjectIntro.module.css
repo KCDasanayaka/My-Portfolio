@@ -14,7 +14,7 @@
   padding:
     clamp(40px, 6vw, 120px)
     0
-    clamp(100px, 14vw, 200px);
+    clamp(40px, 6vw, 100px);
 }
 
 .kicker {
