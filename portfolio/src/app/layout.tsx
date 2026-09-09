@@ -1,16 +1,21 @@
 import "./globals.css";
 import { Urbanist } from "next/font/google";
+import type { Metadata } from "next";
+import CursorFollower from "@/components/projects/CursorFollower";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title:
-    "Kavindu Chathuranga — UI/UX Designer, Frontend Developer & Brand Designer",
+    "Kavindu Chathuranga",
   description:
     "I turn design and code into digital experiences that help businesses grow.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={urbanist.className}>
+        <CursorFollower />
         {children}
       </body>
     </html>

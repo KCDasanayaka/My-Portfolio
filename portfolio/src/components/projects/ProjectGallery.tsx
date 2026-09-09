@@ -77,6 +77,7 @@ export default function ProjectGallery({
           >
             <div
               className={styles.imageWrapper}
+              data-cursor="image"
             >
               <Image
                 src={image.src}

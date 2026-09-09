@@ -132,23 +132,6 @@ export default function PortfolioPreloader({
         </div>
       </div>
 
-      {/* Small progress indicator */}
-      <div
-        className={styles.progress}
-        aria-hidden="true"
-      >
-        <span className={styles.progressCurrent}>
-          {String(wordIndex + 1).padStart(2, "0")}
-        </span>
-
-        <span className={styles.progressDivider}>
-          /
-        </span>
-
-        <span className={styles.progressTotal}>
-          {String(WORDS.length).padStart(2, "0")}
-        </span>
-      </div>
 
       {/* Curved blue transition layer */}
       <div
