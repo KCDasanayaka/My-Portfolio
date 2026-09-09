@@ -1,0 +1,13 @@
+.projectPage {
+  position: relative;
+
+  width: 100%;
+
+  overflow-x: clip;
+
+  background: #ffffff;
+}
+
+.projectPage * {
+  box-sizing: border-box;
+}
