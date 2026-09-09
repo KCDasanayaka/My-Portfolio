@@ -1,0 +1,221 @@
+.intro {
+  position: relative;
+  z-index: 3;
+  background: #ffffff;
+  color: #111111;
+}
+
+.container {
+  width: min(
+    1400px,
+    calc(100% - 48px)
+  );
+  margin: 0 auto;
+  padding:
+    clamp(40px, 6vw, 120px)
+    0
+    clamp(100px, 14vw, 200px);
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #2c50f7;
+}
+
+.heading h2 {
+  margin: 0;
+
+  font-size: clamp(
+    70px,
+    13vw,
+    190px
+  );
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 700;
+}
+
+.subtitle {
+  max-width: 900px;
+
+  margin:
+    45px
+    0
+    0;
+
+  font-size: clamp(
+    24px,
+    3vw,
+    46px
+  );
+
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+}
+
+.contentGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(280px, 0.6fr);
+
+  gap: 100px;
+
+  margin-top: 10px;
+}
+
+.description {
+  max-width: 720px;
+}
+
+.description p {
+  margin: 0;
+
+  font-size: clamp(
+    18px,
+    2vw,
+    28px
+  );
+
+  line-height: 1.5;
+
+  color: #555555;
+}
+
+.meta {
+  display: flex;
+  flex-direction:column;
+  gap: 35px;
+}
+
+.metaItem {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid #dddddd;
+}
+
+.metaItem span {
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  color: #888888;
+}
+
+.metaItem strong {
+  font-size: 16px;
+
+  font-weight: 500;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  min-width: 170px;
+  padding:
+    16px
+    18px;
+  border:
+    1px solid #d8d8d8;
+  color: #ffffff;
+  background: #2c50f7;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.links a:hover {
+  background: #ffffff;
+
+  border-color: #2c50f7;
+
+  color: #2c50f7;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(
+      100% - 36px,
+      1400px
+    );
+
+    padding:
+      80px
+      0
+      100px;
+  }
+
+  .heading h2 {
+    font-size:
+      clamp(
+        58px,
+        17vw,
+        100px
+      );
+  }
+
+  .subtitle {
+    margin-top: 30px;
+
+    font-size: 24px;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+
+    margin-top: 80px;
+  }
+
+  .description p {
+    font-size: 19px;
+  }
+
+  .links {
+    margin-top: 70px;
+
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .links a {
+    min-width: 0;
+
+    gap: 15px;
+  }
+}
