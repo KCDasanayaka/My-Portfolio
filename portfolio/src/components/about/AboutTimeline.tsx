@@ -8,33 +8,24 @@ const timelineItems = [
 
   {
     number: "01",
-    year: "INTERNSHIP",
-    title: "UI/UX DESIGN",
-    role: "UI/UX Designer Intern",
-    company: "Limitless Ideation",
+    year: "2025 Feb-Aug",
+    title: "UI/UX Designer",
+    role: "Limitless Ideation",
+    company: "Internship",
     description:
       "My internship was where design moved from theory into real-world products. I worked across interfaces, user experiences and digital products while learning how design decisions are shaped by users, business requirements and development constraints.",
   },
 
   {
     number: "02",
-    year: "FREELANCE",
-    title: "INDEPENDENT WORK",
+    year: "2025 Sept-",
+    title: "Freelancer",
     role: "UI/UX · Web · Brand Design",
-    company: "VISONEXT STUDIOS",
+    company: "",
     description:
-      "Working independently allowed me to explore different industries, visual styles and design problems — from websites and digital products to branding and promotional experiences.",
+      "Working independently allowed me to explore different industries, visual styles and design problems - from websites and digital products to branding and promotional experiences.",
   },
 
-  {
-    number: "03",
-    year: "NOW",
-    title: "DESIGN × TECHNOLOGY",
-    role: "UI/UX Engineer",
-    company: "Building what comes next",
-    description:
-      "I'm continuing to grow at the intersection of design, technology and human behaviour. My goal is to create digital experiences that are not only visually strong, but intuitive, useful and built to make an impact.",
-  },
 ];
 
 
@@ -46,13 +37,7 @@ export default function AboutTimeline() {
       {/* HEADER */}
 
       <div className={styles.timelineHeader}>
-
-        <div className={styles.sectionNumber}>
-          03
-        </div>
-
         <div>
-
           <p className={styles.eyebrow}>
             THE JOURNEY
           </p>

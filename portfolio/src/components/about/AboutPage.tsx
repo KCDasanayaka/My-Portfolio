@@ -16,7 +16,7 @@ export default function AboutPage() {
       <section className={styles.introSection}>
 
         <div className={styles.introHeader}>
-          <span className={styles.sectionNumber}>01</span>
+          
           <h1 className={styles.sectionTitle}>
             WHO AM I?
           </h1>
@@ -103,7 +103,7 @@ export default function AboutPage() {
       <section className={styles.contactSection}>
         <div className={styles.contactTop}>
           <span className={styles.sectionNumber}>
-            04
+            
           </span>
           <span className={styles.contactLabel}>
             LET'S WORK TOGETHER

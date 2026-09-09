@@ -16,13 +16,9 @@
 
 .timelineHeader {
   display: grid;
-
-  grid-template-columns: 80px 1fr;
-
+  
   align-items: start;
-
-  max-width: 1400px;
-
+  max-width: 1800px;
   margin: 0 auto 140px;
 }
 
@@ -42,15 +38,10 @@
 
 .eyebrow {
   margin: 0 0 15px;
-
   font-family: "Urbanist", sans-serif;
-
-  font-size: 12px;
-
+  font-size: 18px;
   font-weight: 600;
-
   letter-spacing: 0.18em;
-
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -156,15 +147,11 @@
 
 .timelineCard {
   width: 100%;
-
   max-width: 500px;
-
   padding: 36px;
-
   border: 1px solid rgba(255, 255, 255, 0.12);
-
-  background: rgba(255, 255, 255, 0.025);
-
+  background: rgba(242, 239, 239, 0.907);
+  border-radius: 10px;
   transition:
     border-color 0.35s ease,
     transform 0.35s ease,
@@ -174,10 +161,11 @@
 
 .timelineCard:hover {
   transform: translateY(-8px);
-
+  transform: translateX(+4px);
+  transform: scale(1.1);
   border-color: rgba(44, 80, 247, 0.7);
-
-  background: rgba(44, 80, 247, 0.05);
+  
+  color: rgba(255, 255, 255, 0.885);
 }
 
 
@@ -187,36 +175,30 @@
 
 .cardTop {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   margin-bottom: 50px;
 }
 
 
 .number {
   font-family: "Urbanist", sans-serif;
-
-  font-size: 12px;
-
+  font-size: 16px;
   font-weight: 600;
-
   color: #2C50F7;
+}
+
+.number:hover{
+  color: rgba(255, 255, 255, 0.885);
 }
 
 
 .year {
   font-family: "Urbanist", sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 500;
-
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: 0.12em;
-
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(18, 18, 18, 0.863);
 }
 
 
@@ -226,55 +208,40 @@
 
 .timelineCard h3 {
   margin: 0 0 20px;
-
   font-family: "Urbanist", sans-serif;
-
   font-size: clamp(30px, 4vw, 54px);
-
   line-height: 0.95;
-
   letter-spacing: -0.05em;
-
   font-weight: 700;
+  color: #111;
 }
 
 
 .role {
   margin: 0 0 5px;
-
   font-family: "Urbanist", sans-serif;
-
-  font-size: 16px;
-
+  font-size: 24px;
   font-weight: 600;
-
-  color: #fff;
+  color: #111;
 }
 
 
 .company {
   margin: 0 0 25px;
-
   font-family: "Urbanist", sans-serif;
-
-  font-size: 14px;
-
+  font-size: 20px;
+  font-weight: 600;
   color: #2C50F7;
 }
 
 
 .description {
   margin: 0;
-
   font-family: "Urbanist", sans-serif;
-
   font-size: 15px;
-
   line-height: 1.75;
-
-  font-weight: 300;
-
-  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  color: #111;
 }
 
 
@@ -327,27 +294,19 @@
 
 .timelineEnd {
   max-width: 1400px;
-
   margin: 150px auto 0;
-
   display: flex;
-
   align-items: center;
-
   gap: 30px;
 }
 
 
 .timelineEnd span {
   font-family: "Urbanist", sans-serif;
-
-  font-size: 11px;
-
+  font-size: 16px;
   font-weight: 600;
-
   letter-spacing: 0.16em;
-
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.622);
 
   white-space: nowrap;
 }

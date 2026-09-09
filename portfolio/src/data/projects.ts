@@ -1,4 +1,9 @@
 import BookMyBusImage from "../app/projects/BookMyBus.jpg";
+import ChildCare from "../app/projects/childCare.jpg";
+import natureWinYala from "../app/projects/natureWinYala.jpg";
+import quantum from "../app/projects/quantum.jpg";
+import ugc from "../app/projects/ugc.jpg";
+import buildMatePlus from "../app/projects/buildMatePlus.jpg";
 
 interface Project {
     id: number;
@@ -18,37 +23,37 @@ export const projects: Project[] = [
     },
     {
         id: 2,
-        title: "Task Management App",
+        title: "ChildCare",
         subtitle: "Collaborative productivity tool",
-        image: "/projects/taskapp.jpg",
+        image: "/projects/childCare.jpg",
         href: "/projects/taskapp",
     },
     {
         id: 3,
-        title: "Analytics Dashboard",
+        title: "NatureWinYala",
         subtitle: "Real-time data visualization",
-        image: "/projects/analytics.jpg",
+        image: "/projects/natureWinYala.jpg",
         href: "/projects/analytics",
     },
     {
         id: 4,
-        title: "Social Media Feed",
+        title: "UGC",
         subtitle: "Interactive content sharing",
-        image: "/projects/social.jpg",
+        image: "/projects/ugc.jpg",
         href: "/projects/social",
     },
     {
         id: 5,
-        title: "Music Streaming Service",
+        title: "Quantum",
         subtitle: "Audio platform with playlists",
-        image: "/projects/music.jpg",
+        image: "/projects/quantum.jpg",
         href: "/projects/music",
     },
     {
         id: 6,
-        title: "Weather Application",
+        title: "BuildMatePlus",
         subtitle: "Forecast and climate insights",
-        image: "/projects/weather.jpg",
+        image: "/projects/buildMatePlus.jpg",
         href: "/projects/weather",
     },
 ];
