@@ -796,7 +796,7 @@
    * One viewport per slide.
    */
   .scrollSection {
-    height: 2000vh;
+    height: 800vh;
   }
 
 
@@ -1018,7 +1018,7 @@
 
     width: 92vw;
 
-    height: 120vw;
+    height: 100vw;
 
     max-height: 500px;
 

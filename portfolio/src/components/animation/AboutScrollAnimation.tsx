@@ -268,7 +268,7 @@ export default function AboutScrollAnimation() {
           isMobile ? 0 : 8;
 
         const titleEndX =
-          isMobile ? 0 : -18;
+          isMobile ? 10 : -18;
 
         const titleX = lerp(
           titleStartX,
