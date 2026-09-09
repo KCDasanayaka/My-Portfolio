@@ -59,7 +59,7 @@ export default function Navbar() {
             </div>
             <div className={styles.logoText}>
               <span className={styles.logoName}>KavinduChathuranga</span>
-              <span className={styles.logoSub}>By VISONEXT STUDIOS</span>
+              <span className={styles.logoSub}>VISONEXT STUDIOS</span>
             </div>
           </Link>
 

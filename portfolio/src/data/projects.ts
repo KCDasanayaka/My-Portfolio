@@ -276,6 +276,10 @@ export const projects: Project[] = [
         src: "/projects/UGC/1.webp",
         alt: "UGC project screen 01",
       },
+      {
+        src: "/projects/UGC/2.webp",
+        alt: "UGC project screen 02",
+      },
       
     ],
   },
