@@ -8,7 +8,7 @@ const timelineItems = [
 
   {
     number: "01",
-    year: "2025 Feb-Aug",
+    year: "Feb 2025 - Aug 2025",
     title: "UI/UX Designer",
     role: "Limitless Ideation",
     company: "Internship",
@@ -18,7 +18,7 @@ const timelineItems = [
 
   {
     number: "02",
-    year: "2025 Sept-",
+    year: "Sep 2025 - Present",
     title: "Freelancer",
     role: "UI/UX · Web · Brand Design",
     company: "",

@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/ProjectsSection.module.css";
 import { projects } from "../../data/projects";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 /* ── Project card component ── */
 function ProjectCard({
@@ -62,6 +64,8 @@ export default function ProjectsPage() {
   }, []);
 
   return (
+    <>
+    
     <section className={styles.projects} id="projects" ref={sectionRef}>
       {/* ── Top meta bar ── */}
       <div className={styles.metaBar}>
@@ -83,5 +87,8 @@ export default function ProjectsPage() {
         ))}
       </div>
     </section>
+    <Footer/>
+    </>
+    
   );
 }
