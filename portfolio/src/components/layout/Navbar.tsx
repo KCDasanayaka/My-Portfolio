@@ -158,19 +158,19 @@ export default function Navbar() {
       {[
         {
           label: "LinkedIn",
-          href: "https://www.linkedin.com/",
+          href: "https://www.linkedin.com/in/kavindu-dasanayaka-6a6735285/",
         },
         {
           label: "Behance",
-          href: "https://www.behance.net/",
+          href: "https://www.behance.net/KavinduDasanayaka",
         },
         {
           label: "Dribbble",
-          href: "https://dribbble.com/",
+          href: "https://dribbble.com/Kavindu_Chathuranga_01",
         },
         {
-          label: "Instagram",
-          href: "https://www.instagram.com/",
+          label: "Facebook",
+          href: "https://www.facebook.com/share/1DmmQuKeEU/",
         },
       ].map(({ label, href }) => (
         <a

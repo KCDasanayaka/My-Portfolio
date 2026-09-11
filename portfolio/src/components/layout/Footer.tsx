@@ -12,13 +12,13 @@ const NAV_LINKS = [
 
 /* ── Social links — row 1 & row 2 ── */
 const SOCIAL_ROW_1 = [
-  { label: "Whatsapp", href: "https://wa.me/yourphone" },
-  { label: "Instagram", href: "https://instagram.com/yourusername" },
+  { label: "Whatsapp", href: "https://wa.me/94711258917" },
+  { label: "Facebook", href: "https://www.facebook.com/share/1DmmQuKeEU/" },
 ];
 
 const SOCIAL_ROW_2 = [
-  { label: "Dribble",  href: "https://dribbble.com/yourusername" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
+  { label: "Behance",  href: "https://www.behance.net/KavinduDasanayaka" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/kavindu-dasanayaka-6a6735285/" },
 ];
 
 export default function Footer() {
