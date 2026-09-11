@@ -225,7 +225,7 @@ export default function ServicesSection() {
         </div>
 
         <Link
-          href="/cv.pdf"
+          href="/UiUx_Associate_KavinduChathuranga_CV.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.ctaBtn}
