@@ -9,13 +9,9 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Kavindu Chathuranga",
+  title: "Kavindu Chathuranga",
   description:
     "I turn design and code into digital experiences that help businesses grow.",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
