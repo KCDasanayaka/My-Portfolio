@@ -115,7 +115,7 @@ export default function Footer() {
       {/* ── Bottom copyright bar ── */}
       <div className={styles.bottomBar}>
         <p className={styles.copyright}>
-          © VISONEXT STUDIOS | {year}
+          © VISONEXT STUDIOS BY KAVINDU | {year}
         </p>
       </div>
 
