@@ -60,7 +60,7 @@ export default function HeroSection() {
         {/* ① Blue top block with bio */}
         <div className={styles.mobileBioBlock}>
           <p className={styles.mobileBioText}>
-            I&apos;m Kavindu Chathuranga – a UI/UX Engineer, Frontend
+            UI/UX Engineer, Frontend
             Developer, and Brand Designer creating intuitive experiences,
             modern interfaces, and impactful brands
           </p>
@@ -73,7 +73,7 @@ export default function HeroSection() {
             <span className={styles.taglineAccent}>digital experiences</span>{" "}
             that help businesses grow
           </p>
-          <h1 className={styles.mobileRoleTitle}>UIUX ENGINEER</h1>
+          <h1 className={styles.mobileRoleTitle}>HI,I'M KAVINDU</h1>
         </div>
 
         {/* ③ Portrait – full width */}
@@ -142,7 +142,7 @@ export default function HeroSection() {
         {/* Right copy */}
         <div className={styles.rightBlock}>
           <p className={styles.bio}>
-            I&apos;m Kavindu Chathuranga, a UI/UX Engineer, and Brand Designer creating intuitive experiences,
+            UI/UX Engineer, and Brand Designer creating intuitive experiences,
             modern interfaces, and impactful brands
           </p>
           <Link href="/#contact" className={styles.ctaPill}>
@@ -155,7 +155,7 @@ export default function HeroSection() {
 
         {/* Giant title */}
         <div ref={titleRef} className={styles.bigTitle}>
-          <span>UIUX ENGINEER</span>
+          <span>HI,I'M KAVINDU</span>
         </div>
 
         {/* Blue accent bar */}
