@@ -391,6 +391,171 @@ export const projects: Project[] = [
       },
     ],
   },
+
+  {
+    id: 7,
+
+    title: "SLITA -  LOGO DESIGN",
+    subtitle: "Sri Lanka Institute of Textile and Apparel",
+
+    image: "/projects/SLITA-main.jpg",
+    href: "/projects/SLITA",
+
+    slug: "SLITA",
+
+    year: "2026",
+    role: "Brand Designer",
+    category: "Branding",
+
+    description:
+      "A certification seal for the Sri Lanka Institute of Textile and Apparel, combining a shield, heart and cupped hands to show that the clothing carries a promise of safety, health and care.",
+
+    heroImage: "/projects/SLITA.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "https://www.behance.net/gallery/219426941/BuildMate-Construction-Enablement-Platform",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+    },
+
+    images: [
+      {
+        src: "/projects/SLITA/SLITA.jpg",
+        alt: "SLITA project screen 01",
+      },
+      
+    ],
+  },
+
+  {
+    id: 8,
+
+    title: "Discovery de ceylonica",
+    subtitle: "Branding - Travel agency",
+
+    image: "/projects/ceylonica.jpg",
+    href: "/projects/ceylonica",
+
+    slug: "ceylonica",
+
+    year: "2026",
+    role: "Brand Designer",
+    category: "Branding",
+
+    description:
+      "A warm, heritage-rich identity for a Sri Lankan travel agency, built around an ornately decorated elephant and a calming teal palette that welcomes foreign visitors to the island. ",
+
+    heroImage: "/projects/ceylonica.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+    },
+
+    images: [
+      {
+        src: "/projects/ceylonica.jpg",
+        alt: "SLITA project screen 01",
+      },
+      
+      
+    ],
+  },
+
+  {
+    id: 9,
+
+    title: "Ceynora",
+    subtitle: "Travel agency",
+
+    image: "/projects/ceynora.jpg",
+    href: "/projects/ceynora",
+
+    slug: "ceynora",
+
+    year: "2026",
+    role: "Brand Designer",
+    category: "Branding",
+
+    description:
+      "A modern, premium travel brand for exploring Sri Lanka, pairing a flowing elephant silhouette and a lotus-inspired rosette with an ocean-blue palette for tourists and locals alike.",
+
+    heroImage: "/projects/ceynora - main.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+    },
+
+    images: [
+      {
+        src: "/projects/ceynora.jpg",
+        alt: "ceynora project screen 01",
+      },
+      
+    ],
+  },
+
+  {
+    id: 10,
+
+    title: "NovaLabs",
+    subtitle: "Tech company · IT services",
+
+    image: "/projects/Novalabs.jpg",
+    href: "/projects/Novalabs",
+
+    slug: "Novalabs",
+
+    year: "2026",
+    role: "Brand Designer",
+    category: "Branding",
+
+    description:
+      "A bold, forward-looking identity for an IT services company, using converging arrows and circle-and-square letterforms with a blue-to-teal gradient to express ideas coming together into innovation.",
+
+    heroImage: "/projects/Novalabs.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+    },
+
+    images: [
+      {
+        src: "/projects/Novalabs.jpg",
+        alt: "NovaLabs project screen 01",
+      },
+      
+    ],
+  },
 ];
 
 
