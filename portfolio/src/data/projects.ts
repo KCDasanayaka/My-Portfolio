@@ -395,6 +395,57 @@ export const projects: Project[] = [
   {
     id: 7,
 
+    title: "AUTOGLOBE",
+    subtitle: "Global Vehicle Import & Export",
+
+    image: "/projects/autoglobe.jpg",
+    href: "/projects/autoglobe",
+
+    slug: "autoglobe",
+
+    year: "2026",
+    role: "UI/UX Designer",
+    category: "Web Application",
+
+    description:
+      "AutoGlobe is a conceptual website design for a global vehicle import and export company. The concept focuses on presenting vehicle sourcing, international shipping, and import-export services through a professional and modern digital experience.",
+
+    heroImage: "/projects/autoglobe.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "https://www.behance.net/gallery/258297561/AutoGlobe-Vehicle-Import-Export",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+    },
+
+    images: [
+      {
+        src: "/projects/autoglobe/01.jpg",
+        alt: "AUTOGLOBE project screen 01",
+      },
+      {
+        src: "/projects/autoglobe/02.jpg",
+        alt: "AUTOGLOBE project screen 02",
+      },
+      {
+        src: "/projects/autoglobe/03.jpg",
+        alt: "AUTOGLOBE project screen 03",
+      },{
+        src: "/projects/autoglobe/04.jpg",
+        alt: "AUTOGLOBE project screen 04",
+      },
+    ],
+  },
+
+  {
+    id: 8,
+
     title: "SLITA -  LOGO DESIGN",
     subtitle: "Sri Lanka Institute of Textile and Apparel",
 
@@ -414,7 +465,7 @@ export const projects: Project[] = [
     heroPosition: "center",
 
     links: {
-      behance: "https://www.behance.net/gallery/219426941/BuildMate-Construction-Enablement-Platform",
+      behance: "https://www.behance.net/gallery/258297921/SLITA-A-seal-of-trust-for-what-we-wear",
       dribbble: "",
       github: "",
       live: "",
@@ -434,7 +485,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 8,
+    id: 9,
 
     title: "Discovery de ceylonica",
     subtitle: "Branding - Travel agency",
@@ -476,7 +527,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 9,
+    id: 10,
 
     title: "Ceynora",
     subtitle: "Travel agency",
@@ -517,7 +568,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 10,
+    id: 11,
 
     title: "NovaLabs",
     subtitle: "Tech company · IT services",
