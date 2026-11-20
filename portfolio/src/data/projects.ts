@@ -506,7 +506,50 @@ export const projects: Project[] = [
     heroPosition: "center",
 
     links: {
-      behance: "",
+      behance: "https://www.behance.net/gallery/258764825/Discovery-de-Ceylonica",
+      dribbble: "",
+      github: "",
+      live: "",
+    },
+
+    details: {
+      
+      
+    },
+
+    images: [
+      {
+        src: "/projects/discovery-de-ceylonica/discovery-de-ceylonica.jpg",
+        alt: "Discovery de ceylonica project screen 01",
+      },
+      
+      
+    ],
+  },
+
+  {
+    id: 10,
+
+    title: "Grade-X",
+    subtitle: "Education platform",
+
+    image: "/projects/grade-x.jpg",
+    href: "/projects/grade-x",
+
+    slug: "grade-x",
+
+    year: "2026",
+    role: "Brand Designer",
+    category: "Branding",
+
+    description:
+      "gradeX is an academic support service dedicated to helping students navigate their academic journey through reliable, original, and on-time assistance.",
+
+    heroImage: "/projects/grade-x.jpg",
+    heroPosition: "center",
+
+    links: {
+      behance: "https://www.behance.net/gallery/258764093/GradeX-Brand-Identity",
       dribbble: "",
       github: "",
       live: "",
@@ -518,16 +561,15 @@ export const projects: Project[] = [
 
     images: [
       {
-        src: "/projects/ceylonica.jpg",
-        alt: "SLITA project screen 01",
+        src: "/projects/grade-x/grade-x.jpg",
+        alt: "Grade-X project screen 01",
       },
-      
       
     ],
   },
 
   {
-    id: 10,
+    id: 11,
 
     title: "Ceynora",
     subtitle: "Travel agency",
@@ -568,7 +610,7 @@ export const projects: Project[] = [
   },
 
   {
-    id: 11,
+    id: 12,
 
     title: "NovaLabs",
     subtitle: "Tech company · IT services",
